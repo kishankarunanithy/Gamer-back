@@ -3,17 +3,17 @@
 ## Présentation Générale
 
 Gamer challenges et une plateforme dédiée aux défis de jeux vidéo, permettant aux utilisateurs de proposer et relever des challenges sur différents jeux.
-Cette platforme visent à rassembler les amateurs de jeux vidéo, quel que soit leurs niveau, cherchant à se mesurer aux autres et à partager leurs expériences.
+Cette plateforme vise à rassembler les amateurs de jeux vidéo, quel que soit leur niveau, cherchant à se mesurer aux autres et à partager leurs expériences.
 
 ## Présentation du Projet de Développement
 
 ### Le site comprend:
- - **une page d'accueil**, présentant les GamerChallenges, des défis en cours et populaires.
+- **une page d'accueil**, présentant les GamerChallenges, des défis en cours et populaires.
 - Une **page de inscription/connection** qui permet de gérer les utilisateurs
-- **page utilisateurs** pour permettre de créer de nouveaux challenges et visualiser ceux déjà posté. Possibilité de modifier les informations du profile
+- **page utilisateurs** pour permettre de créer de nouveaux challenges et visualiser ceux déjà postés. Possibilité de modifier les informations du profile
 - **Page de détail d'un challenge** comprend la description, les règles et vidéos des participants
 - **Page des challenges** 
-- **Système de votation** offre la possibilité aux utilisateur de votés pour chaques challenges et participations.
+- **Système de votation** offre la possibilité aux utilisateurs de votés pour chaques challenges et participations.
 - **Tableau des leaders** Affiche les utilisateurs ayant réalisé le plus de défis et obtenu le plus de votes
 
 
@@ -22,13 +22,13 @@ Cette platforme visent à rassembler les amateurs de jeux vidéo, quel que soit 
   - Logo retour accueil
   - Affichages des défis en cours et populaires
   - Bouton de inscription/connection
-  - Si connécté bouton profil logout
+  - Si connecté bouton profil logout
   - nav bar: page des challenges, leaderbord, favoris, profil, home
 - page détails d'un challenges
-  - système de vote, bouton de publication d'un challenge remplis, niveau de difficultées
+  - système de vote, bouton de publication d'un challenge remplis, niveau de difficultés
 - page des challenges
 - Tableau des leaders
-  - classement user ayant réailisé le plus de défis, et obtenu le plus de votes
+  - classement user ayant réalisé le plus de défis, et obtenu le plus de votes
 
 ## Evolutions possibles
 - Système de commentaires 
@@ -39,8 +39,6 @@ Cette platforme visent à rassembler les amateurs de jeux vidéo, quel que soit 
 
 
 ## La liste des technologies 
-
-Absolument ! Voici une version plus concise des spécifications techniques pour chaque technologie :
 
 - Back-end
 
@@ -124,11 +122,11 @@ Spécification : Petite, rapide et simple librairie de gestion d'état pour Reac
 Utilisation principale : Gestion de l'état global ou local dans les applications React, alternative plus simple à Redux ou Context API pour de nombreux cas d'usage.
 
 ## Public visé
-Tous les utilisateurs, amateur de jex vidéos et défis
+Tous les utilisateurs, amateurs de jeux vidéos et défis
 
 
-## Navigateur compatible
-Application disponnible sur tous les navigateurs destop/mobile, développement en mobile first.
+## Navigateurs compatibles
+Application disponible sur tous les navigateurs desktop/mobile, développement en mobile first.
 
 
 
