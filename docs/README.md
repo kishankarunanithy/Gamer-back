@@ -119,5 +119,20 @@ Utilisation principale : Développement rapide d'UI responsives.
 Spécification : Standard ouvert pour transmettre des informations sécurisées (JSON signé), utilisé pour l'authentification/autorisation côté client.
 Utilisation principale : Authentification et autorisation utilisateur.
 
+**Zustand**
+Spécification : Petite, rapide et simple librairie de gestion d'état pour React et JavaScript. Utilise des hooks pour créer et consommer des "stores" contenant l'état et les actions pour le modifier. Se concentre sur la simplicité et la performance avec une API minimaliste.
+Utilisation principale : Gestion de l'état global ou local dans les applications React, alternative plus simple à Redux ou Context API pour de nombreux cas d'usage.
+
+## Public visé
+Tous les utilisateurs, amateur de jex vidéos et défis
+
+
+## Navigateur compatible
+Application disponnible sur tous les navigateurs destop/mobile, développement en mobile first.
+
+
+
+
+
 
 
