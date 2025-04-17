@@ -176,6 +176,16 @@ Application disponible sur tous les navigateurs desktop/mobile, développement e
 | PATCH | /participation/:id | les données à modifier | la participation mise à jour | 200 |
 | DELETE | /participation/:id |  |   | 204 |
 
+- Votes
+
+| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
+| ----- | ---------- | ------------ | ------------------- | ----------- |
+| GET   | /rattings     |              | un tableau des votes | 200         |
+| GET   | /ratings/:id |              | un vote            | 200         |
+| POST  | /rattings   |            | les données d'un vote | 201  |
+| PATCH | /rattings/:id | les données à modifier | la participation mise à jour | 200 |
+| DELETE | /rattings/:id |  |   | 204 |
+
 
 
 
