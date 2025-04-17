@@ -208,6 +208,13 @@ Application disponible sur tous les navigateurs desktop/mobile, développement e
 | administrateur | modérer le site | m'assurer de la qualité du contenu |
 | adminstrateur | que les utilisateurs puissent me contacter | répondre à leurs questions |
 
+## Rôles 
+
+- Product owner : Sandrine
+- Scrum master : Kishan
+- Lead dev : Mathias
+- Git master : Benjamin
+
 
 
 
