@@ -131,6 +131,10 @@ Application disponible sur tous les navigateurs desktop/mobile, développement e
 ## Arborescence de l'application
 ![Arborescence](Arborescence.png)
 
+légende : 
+ - les pages vertes ne sont accessibles que par les utilisateurs connectés.
+ - la page rouge n'est accessible qu'avec un profil administrateur.
+
 ## Routes
 
 - Challenges
