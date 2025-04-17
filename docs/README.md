@@ -186,6 +186,27 @@ Application disponible sur tous les navigateurs desktop/mobile, développement e
 | PATCH | /rattings/:id | les données à modifier | la participation mise à jour | 200 |
 | DELETE | /rattings/:id |  |   | 204 |
 
+## User stories
+
+|En tant qu'utilisateur | je souhaite.. | afin de...|
+| ---- | ------ | ----- |
+| non connecté | accéder à la home page | les challenges les plus populaires et en cours |
+| non connecté | accéder aux différentes rubriques du site | choisir ce que je vais consulter |
+| non connecté | accéder à la page d'inscription/connexion | de créer un compte ou accéder à mon compte |
+| non connecté | consulter la page des challenges | motiver à participer |
+| non connecté | consulter le leaderboard | voir les meilleurs joueurs et les challenges les plus populaires |
+| non connecté | voir les participations aux challenges | me divertir |
+| non connecté | filtrer les challenges | les consulter par catégorie/difficulté |
+| non connecté | contacter le support | poser des questions |
+| connecté | accéder à mon profil | le personnaliser/le modifier/le supprimer |
+| connecté | pouvoir créer un nouveau challenge | challenger les autres utilisateurs |
+| connecté | modifier un challenge que j'ai créé | corriger une erreur ou ajouter un élément |
+| connecté | supprimer un challenge de j'ai créé | ne plus le voir |
+| connecté | voter pour un challenge/participant | donner mon avis |
+| connecté | participer à un challenge | de tester mes capacités dans l'art du jeu vidéo |
+| connecté | voir ma position dans le classement des participants | voir mon écart avec les autres participants |
+| administrateur | modérer le site | m'assurer de la qualité du contenu |
+| adminstrateur | que les utilisateurs puissent me contacter | répondre à leurs questions |
 
 
 
