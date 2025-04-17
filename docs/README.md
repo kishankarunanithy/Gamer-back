@@ -128,6 +128,55 @@ Tous les utilisateurs, amateurs de jeux vidéos et défis
 ## Navigateurs compatibles
 Application disponible sur tous les navigateurs desktop/mobile, développement en mobile first.
 
+## Arborescence de l'application
+![Arborescence](Arborescence.png)
+
+## Routes
+
+- Challenges
+
+| Verbe | Chemin        | Request Body | Response Body          | Code (succès) |
+| ----- | ------------- | ------------ | ---------------------- | --------------- |
+| GET   | /challenges     |              | un tableau de challenges | 200             |
+| GET   | /challenges/:id |              | un challenge            | 200             |
+| POST  | /challenges  |          |  | 201 |
+| PATCH  | /challenges/:id | |  | 200 |
+
+- Categories
+
+| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
+| ----- | ---------- | ------------ | ------------------- | ----------- |
+| GET   | /categories     |              | un tableau de catégories | 200         |
+| GET   | /categories/:id |              | une catégorie             | 200         |
+
+- Difficultés
+
+| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
+| ----- | ---------- | ------------ | ------------------- | ----------- |
+| GET   | /difficulties     |              | un tableau de difficultés | 200         |
+| GET   | /difficulties/:id |              | une difficulté             | 200         |
+
+- Utilisateur
+
+| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
+| ----- | ---------- | ------------ | ------------------- | ----------- |
+| GET   | /users     |              | un tableau d'utilisateurs | 200         |
+| GET   | /users/:id |              | un utilisateur            | 200         |
+| POST  | /users   |            | les données d'un utilistateur | 201  |
+| PATCH | /users/:id | les données à modifier | l'utilisateur mis à jour | 200 |
+| DELETE | /users/:id |  |   | 204 |
+
+- Participation
+
+| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
+| ----- | ---------- | ------------ | ------------------- | ----------- |
+| GET   | /participation     |              | un tableau des participations | 200         |
+| GET   | /participation/:id |              | une participation            | 200         |
+| POST  | /participation   |            | les données d'une participation | 201  |
+| PATCH | /participation/:id | les données à modifier | la participation mise à jour | 200 |
+| DELETE | /participation/:id |  |   | 204 |
+
+
 
 
 
