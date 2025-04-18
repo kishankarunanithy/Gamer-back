@@ -5,190 +5,106 @@
 Gamer challenges et une plateforme dédiée aux défis de jeux vidéo, permettant aux utilisateurs de proposer et relever des challenges sur différents jeux.
 Cette plateforme vise à rassembler les amateurs de jeux vidéo, quel que soit leur niveau, cherchant à se mesurer aux autres et à partager leurs expériences.
 
-## Présentation du Projet de Développement
+## MVP
 
 ### Le site comprend:
 - **une page d'accueil**, présentant les GamerChallenges, des défis en cours et populaires.
-- Une **page de inscription/connection** qui permet de gérer les utilisateurs
-- **page utilisateurs** pour permettre de créer de nouveaux challenges et visualiser ceux déjà postés. Possibilité de modifier les informations du profile
+- Une **page de inscription/connexion** qui permet de gérer les utilisateurs
+- **page utilisateur** pour permettre de créer de nouveaux challenges et visualiser ceux déjà postés. Possibilité de modifier les informations du profile
 - **Page de détail d'un challenge** comprend la description, les règles et vidéos des participants
 - **Page des challenges** 
-- **Système de votation** offre la possibilité aux utilisateurs de votés pour chaques challenges et participations.
-- **Tableau des leaders** Affiche les utilisateurs ayant réalisé le plus de défis et obtenu le plus de votes
+- **Tableau des leaders** Affiche les utilisateurs ayant réalisé le plus de défis
 
-
-## Les fonctionnalités 
-- Page d'accueil : 
-  - Logo retour accueil
-  - Affichages des défis en cours et populaires
-  - Bouton de inscription/connection
-  - Si connecté bouton profil logout
-  - nav bar: page des challenges, leaderbord, favoris, profil, home
-- page détails d'un challenges
-  - système de vote, bouton de publication d'un challenge remplis, niveau de difficultés
-- page des challenges
-- Tableau des leaders
-  - classement user ayant réalisé le plus de défis, et obtenu le plus de votes
 
 ## Evolutions possibles
+- Système de votation offre la possibilité aux utilisateurs de votés pour chaques challenges et participations.
 - Système de commentaires 
 - filtre de recherche
   - jeux, popularité, type, difficultées, catégories, popularités.
 - système de récompenses
   - badges
+- back-office admin
 
 
 ## La liste des technologies 
 
 - Back-end
 
-Node.js
+Node.js Express pour l'API REST et PostgreSQL pour la base de données
 
-Spécification : Environnement JavaScript serveur (V8), non bloquant, événementiel, pour applications réseau performantes.
-Utilisation principale : API, serveurs web, temps réel, outils CLI.
-
-**Express**
-Spécification : Framework web Node.js minimaliste et flexible pour API et applications web (routage, middlewares, HTTP).
-Utilisation principale : API RESTful, applications web (monocouche/multicouches).
-
-**Sequelize**
-Spécification : ORM Node.js (PostgreSQL, MySQL, SQLite, MariaDB, MSSQL) pour interagir avec les bases de données SQL via des objets JavaScript.
-Utilisation principale : Interaction bases de données SQL, modélisation, migrations.
-
-**API REST**
-Spécification : Architecture logicielle pour services web (méthodes HTTP, stateless, interface uniforme, ressources).
-Utilisation principale : Communication entre applications via HTTP.
-
-**TypeScript**
-Spécification : Sur-ensemble typé de JavaScript (compilation vers JS), ajoutant typage statique, interfaces, classes pour meilleure maintenabilité et détection d'erreurs.
-Utilisation principale : Développement d'applications JS complexes (serveur et client).
-
-**xss-sanitizer**
-Spécification : Bibliothèque JS pour nettoyer les entrées utilisateur et prévenir les attaques XSS (suppression/encodage de scripts malveillants).
-Utilisation principale : Sécurité web (filtrage des données utilisateur).
-
-**cors**
-Spécification : Mécanisme de sécurité navigateur (restreint requêtes inter-origines). Bibliothèque Node.js pour configurer les en-têtes d'autorisation.
-Utilisation principale : Autoriser l'accès à l'API depuis différents domaines front-end.
-
-**eslint**
-Spécification : Linter JS/TS (analyse statique du code pour style, erreurs, règles configurées).
-Utilisation principale : Qualité et cohérence du code.
-
-**Bcrypt**
-Spécification : Fonction de hachage de mot de passe robuste (salt, cost factor) contre les attaques par table arc-en-ciel.
-Utilisation principale : Stockage sécurisé des mots de passe.
-
-**PostgreSQL**
-Spécification : SGBDR open source puissant et fiable (ACID, SQL standard, fonctionnalités avancées).
-Utilisation principale : Stockage persistant, gestion des données et relations, requêtes complexes.
-
-**PG**
-Spécification : Client PostgreSQL pour Node.js (connexion, exécution de requêtes, gestion des résultats).
-Utilisation principale : Interaction Node.js avec PostgreSQL.
-
-**JOI**
-Spécification : Bibliothèque de validation de schéma JS (structure et contenu des objets, intégrité des données entrantes).
-Utilisation principale : Validation des données (utilisateur, requêtes API).
 
 - Front-end
 
-**React**
-Spécification : Bibliothèque JS pour UI interactives (composants, DOM virtuel, flux unidirectionnel).
-Utilisation principale : SPA, interfaces complexes, composants réutilisables.
+React avec TypeScript
 
-**TypeScript**
-Spécification : (Voir Back-end). Typage statique pour applications React plus robustes.
-Utilisation principale : Développement d'applications React complexes et maintenables.
 
-**Vite**
-Spécification : Outil de build front-end rapide (modules ES natifs en dev, Rollup en prod, support TS/JSX/CSS).
-Utilisation principale : Développement web moderne performant (notamment React).
-
-CSS Vanilla / Bulma ...
-**CSS Vanilla** : CSS pur (contrôle total, verbeux pour grands projets).
-Utilisation principale : Petits projets, styles spécifiques, apprentissage CSS.
-
-**Bulma**
-Framework CSS Flexbox (grille responsive, composants pré-stylisés, personnalisation facile).
-Utilisation principale : Développement rapide d'UI responsives.
-
-**Jwt token**
-Spécification : Standard ouvert pour transmettre des informations sécurisées (JSON signé), utilisé pour l'authentification/autorisation côté client.
-Utilisation principale : Authentification et autorisation utilisateur.
-
-**Zustand**
-Spécification : Petite, rapide et simple librairie de gestion d'état pour React et JavaScript. Utilise des hooks pour créer et consommer des "stores" contenant l'état et les actions pour le modifier. Se concentre sur la simplicité et la performance avec une API minimaliste.
-Utilisation principale : Gestion de l'état global ou local dans les applications React, alternative plus simple à Redux ou Context API pour de nombreux cas d'usage.
 
 ## Public visé
 Tous les utilisateurs, amateurs de jeux vidéos et défis
 
 
 ## Navigateurs compatibles
-Application disponible sur tous les navigateurs desktop/mobile, développement en mobile first.
+- Safari 18.4
+- Modzilla firefox 137.0
+- Google chrome 135.0
 
 ## Arborescence de l'application
 ![Arborescence](Arborescence.png)
-
 légende : 
  - les pages vertes ne sont accessibles que par les utilisateurs connectés.
- - la page rouge n'est accessible qu'avec un profil administrateur.
 
 ## Routes
 
 - Challenges
 
-| Verbe | Chemin        | Request Body | Response Body          | Code (succès) |
-| ----- | ------------- | ------------ | ---------------------- | --------------- |
-| GET   | /challenges     |              | un tableau de challenges | 200             |
-| GET   | /challenges/:id |              | un challenge            | 200             |
-| POST  | /challenges  |          |  | 201 |
-| PATCH  | /challenges/:id | |  | 200 |
+| Verbe | Chemin        |  Response Body  | Code (succès) |
+| ----- | ------------- | ------------ | --------------- |
+| GET   | /challenges     | un tableau de challenges | 200      |
+| GET   | /challenges/:id | un challenge            | 200          |
+| POST  | /challenges  | les données du challenge | 201 |
+| PATCH  | /challenges/:id | le challenge mis à jour | 200 |
+| DELETE | /challenges/:id |   | 204 |
 
 - Categories
 
-| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
-| ----- | ---------- | ------------ | ------------------- | ----------- |
-| GET   | /categories     |              | un tableau de catégories | 200         |
-| GET   | /categories/:id |              | une catégorie             | 200         |
+| Verbe | Chemin     | Response Body  | Code (succès) |
+| ----- | ---------- | ------------ | ----------- |
+| GET   | /categories     | un tableau de catégories | 200         |
+| GET   | /categories/:id | une catégorie             | 200         |
+| POST  | /categories   | les données de la catégorie | 201  |
+| PATCH | /categories/:id | la catégorie mise à jour | 200 |
+| DELETE | /categories/:id |  | 204 |
 
-- Difficultés
+- Difficulties
 
-| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
-| ----- | ---------- | ------------ | ------------------- | ----------- |
-| GET   | /difficulties     |              | un tableau de difficultés | 200         |
-| GET   | /difficulties/:id |              | une difficulté             | 200         |
+| Verbe | Chemin     | Response Body   | Code (succès) |
+| ----- | ---------- | ------------ | ----------- |
+| GET   | /difficulties     | un tableau de difficultés | 200         |
+| GET   | /difficulties/:id | une difficulté             | 200         |
+| POST  | /difficulties   | les données d'une difficulté | 201  |
+| PATCH | /difficulties/:id |  la difficulté mise à jour | 200 |
+| DELETE | /difficulties/:id |  | 204 |
 
-- Utilisateur
+- Users
 
-| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
-| ----- | ---------- | ------------ | ------------------- | ----------- |
-| GET   | /users     |              | un tableau d'utilisateurs | 200         |
-| GET   | /users/:id |              | un utilisateur            | 200         |
-| POST  | /users   |            | les données d'un utilistateur | 201  |
-| PATCH | /users/:id | les données à modifier | l'utilisateur mis à jour | 200 |
-| DELETE | /users/:id |  |   | 204 |
+| Verbe | Chemin     | Response Body       | Code (succès) |
+| ----- | ---------- |  -------------------| ----------- |
+| GET   | /users     | un tableau d'utilisateurs | 200         |
+| GET   | /users/:id | un utilisateur            | 200         |
+| POST  | /users   | les données d'un utilistateur | 201  |
+| PATCH | /users/:id |  l'utilisateur mis à jour | 200 |
+| DELETE | /users/:id |  | 204 |
 
-- Participation
+- Submissions
 
-| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
-| ----- | ---------- | ------------ | ------------------- | ----------- |
-| GET   | /participation     |              | un tableau des participations | 200         |
-| GET   | /participation/:id |              | une participation            | 200         |
-| POST  | /participation   |            | les données d'une participation | 201  |
-| PATCH | /participation/:id | les données à modifier | la participation mise à jour | 200 |
-| DELETE | /participation/:id |  |   | 204 |
+| Verbe | Chemin     | Response Body       | Code (succès) |
+| ----- | ---------- | ------------------- | ----------- |
+| GET   | /submissions     | un tableau des participations | 200         |
+| GET   | /submissions/:id |  une participation            | 200         |
+| POST  | /submissions   | les données d'une participation | 201  |
+| PATCH | /submissions:id | la participation mise à jour | 200 |
+| DELETE | /submissions/:id |  | 204 |
 
-- Votes
-
-| Verbe | Chemin     | Request Body | Response Body       | Code (succès) |
-| ----- | ---------- | ------------ | ------------------- | ----------- |
-| GET   | /rattings     |              | un tableau des votes | 200         |
-| GET   | /ratings/:id |              | un vote            | 200         |
-| POST  | /rattings   |            | les données d'un vote | 201  |
-| PATCH | /rattings/:id | les données à modifier | la participation mise à jour | 200 |
-| DELETE | /rattings/:id |  |   | 204 |
 
 ## User stories
 
@@ -200,23 +116,20 @@ légende :
 | non connecté | consulter la page des challenges | motiver à participer |
 | non connecté | consulter le leaderboard | voir les meilleurs joueurs et les challenges les plus populaires |
 | non connecté | voir les participations aux challenges | me divertir |
-| non connecté | filtrer les challenges | les consulter par catégorie/difficulté |
-| non connecté | contacter le support | poser des questions |
 | connecté | accéder à mon profil | le personnaliser/le modifier/le supprimer |
 | connecté | pouvoir créer un nouveau challenge | challenger les autres utilisateurs |
 | connecté | modifier un challenge que j'ai créé | corriger une erreur ou ajouter un élément |
 | connecté | supprimer un challenge de j'ai créé | ne plus le voir |
-| connecté | voter pour un challenge/participant | donner mon avis |
 | connecté | participer à un challenge | de tester mes capacités dans l'art du jeu vidéo |
 | connecté | voir ma position dans le classement des participants | voir mon écart avec les autres participants |
 | administrateur | modérer le site | m'assurer de la qualité du contenu |
-| adminstrateur | que les utilisateurs puissent me contacter | répondre à leurs questions |
 
 ## Rôles 
 
 - Product owner : Sandrine
 - Scrum master : Kishan
-- Lead dev : Mathias
+- Lead dev back : Mathias
+- Lead dev front : Kishan
 - Git master : Benjamin
 
 
