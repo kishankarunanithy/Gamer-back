@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="Alf2oZTkLRgR1FKTasw9" name="Page-1">
-        <mxGraphModel dx="2043" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="1534" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -70,10 +70,10 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="24" value="1,1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="393.5" y="175" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="200" y="190" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="25" value="0,N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="210" y="190" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="400" y="170" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -82,7 +82,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="28" value="0,N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="210" y="298" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="374" y="330" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="38" value="PARTICIPER&amp;nbsp;&lt;div&gt;(preuve vidéo)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-115" y="135" width="120" height="80" as="geometry"/>
@@ -117,10 +117,10 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="59" value="0,N" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="5" y="268" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="-160" y="268" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="60" value="1,1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="-160" y="268" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="5" y="268" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="61" value="ETRE ASSIGNÉ À" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="260" y="260" width="120" height="80" as="geometry"/>
@@ -129,7 +129,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" value="1,1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="374" y="328" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="190" y="285" width="40" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
