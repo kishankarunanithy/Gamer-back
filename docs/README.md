@@ -134,7 +134,14 @@ légende :
 
 ## Charte graphique 
 
-- Polices d'écritures : JOTI ONE 
+- Logos 
+  - ![logo](logo-svg.svg)
+  - ![logo-transparent](logo-transparent-svg.svg)
+  
+- Polices d'écritures :
+  - JOTI ONE
+  - JURA
+
 - Couleurs :
   - #FFFFFF
   - #285CEC
