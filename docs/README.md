@@ -132,6 +132,17 @@ légende :
 - Lead dev front : Kishan
 - Git master : Benjamin
 
+## Charte graphique 
+
+- Polices d'écritures : JOTI ONE 
+- Couleurs :
+  - #FFFFFF
+  - #285CEC
+  - #8692FA
+  - #6778A7
+  - background: #5017A1 -> #1D083B
+
+
 
 
 
