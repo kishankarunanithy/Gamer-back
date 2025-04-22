@@ -19,20 +19,8 @@ console.log("🚧 Ajout de challenges de test...");
 const speedRun = await Challenge.create({name: "Speed Run", description: "Challenge qui va vite", video_url: "https://youtu.be/l4NaMSbirPE?si=5rNBVrWLiRSUHFKl", user_id: userLouis.id, category_id: speedCategory.id, difficulty_id: hardChallenge.id});
 
 // ADD SUBMISSION'S USER TO CHALLENGE
-// console.log("🚧 Ajout de participants aux challenges...");
-// await speedRun.addUser(userBob);
-
-// // ADD CHALLENGE'S AUTHOR
-// console.log("🚧 Ajout de créateur aux challenges...");
-// await userBob.addChallenge(speedRun);
-
-// // ADD CATEGORY TO CHALLENGE
-// console.log("🚧 Ajout de categorie aux challenges...");
-// await speedRun.addCategory(speedCategory);
-
-// // ADD DIFFICULTY TO CHALLENGE
-// console.log("🚧 Ajout de difficulty aux challenges...");
-// await speedRun.addCategory(hardChallenge);
+console.log("🚧 Ajout de participants aux challenges...");
+await speedRun.addUser(userLouis);
 
 console.log("✅ Migration OK ! Fermeture de la base...");
 await sequelize.close();
