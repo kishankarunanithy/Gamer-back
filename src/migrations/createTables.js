@@ -1,4 +1,5 @@
-import { sequelize } from "../models/association.js"
+import { sequelize } from "../models/connection.js"
+import { User, Challenge, Category, Difficulty } from "../models/association.js"
 
 console.log("🗑️ Supressions des tables existantes...");
 await sequelize.drop();

@@ -1,6 +1,7 @@
 import { sequelize } from './connection.js';
-import { Category } from './Category.js';
+import { User } from './User.js';
 import { Challenge } from './Challenge.js';
+import { Category } from './Category.js';
 import { Difficulty } from './Difficulty.js';
 
 Category.hasmany(Challenge, {
