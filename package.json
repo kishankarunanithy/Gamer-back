@@ -1,0 +1,36 @@
+{
+  "name": "gamer-challenges-back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Sushi/gamer-challenges-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Sushi/gamer-challenges-back/issues"
+  },
+  "homepage": "https://github.com/O-clock-Sushi/gamer-challenges-back#readme",
+  "description": "",
+  "dependencies": {
+    "argon2": "^0.41.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "eslint": "^9.25.1",
+    "express": "^5.1.0",
+    "express-xss-sanitizer": "^2.0.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.14.1",
+    "sequelize": "^6.37.7"
+  }
+}
