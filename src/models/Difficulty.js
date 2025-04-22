@@ -1,5 +1,5 @@
 import { sequelize } from "./connection";
-import { Model, DataTypes } from sequelize
+import { Model, DataTypes } from "sequelize";
 
 export class Difficulty extends Model {}
 
