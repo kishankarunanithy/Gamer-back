@@ -1,6 +1,5 @@
-import { sequelize } from "./connection";
+import { sequelize } from "./connection.js";
 import { Model, DataTypes } from "sequelize";
-import { types } from "joi";
 
 export class Category extends Model {}
 

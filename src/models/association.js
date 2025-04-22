@@ -4,33 +4,33 @@ import { Challenge } from './Challenge.js';
 import { Category } from './Category.js';
 import { Difficulty } from './Difficulty.js';
 
-Category.hasmany(Challenge, {
-  as: 'challenges',
+Category.hasMany(Challenge, {
+  as: 'challenges_has_category',
   foreignKey: 'category_id'
 })
 
 Challenge.belongsTo(Category, {
-  as: 'categories',
+  as: 'category',
   foreignKey: "category_id" 
 })
 
-Difficulty.hasmany(Challenge, {
-  as: 'challenges',
+Difficulty.hasMany(Challenge, {
+  as: 'challenges_has_difficulty',
   foreignKey: 'difficulty_id'
 })
 
 Challenge.belongsTo(Difficulty, {
-  as: 'difficulties',
+  as: 'difficultie',
   foreignKey: "difficulty_id"
 })
 
-User.hasmany(Challenge, {
-  as: 'challenges',
+User.hasMany(Challenge, {
+  as: 'challenges_has_user',
   foreignKey: 'user_id'
 })
 
 Challenge.belongsTo(User, {
-  as: 'users',
+  as: 'user',
   foreignKey: "user_id"
 })
 

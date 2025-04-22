@@ -1,11 +1,16 @@
-import { sequelize } from "../models/connection.js"
-import { User, Challenge, Category, Difficulty } from "../models/association.js"
+import { sequelize } from "../models/association.js"
 
-console.log("🗑️ Supressions des tables existantes...");
-await sequelize.drop();
+async function runMigration() {
+  try {
+    console.log("🚧 Définition des tables...");
+    await sequelize.sync({ force: true });
+    
+    console.log("✅ Migration OK ! Fermeture de la base...");
+  } catch (error) {
+    console.error("❌ Erreur lors de la migration:", error);
+  } finally {
+    await sequelize.close();
+  }
+}
 
-console.log("🚧 Définition des tables...");
-await sequelize.sync();
-
-console.log("✅ Migration OK ! Fermeture de la base...");
-await sequelize.close();
+runMigration();
