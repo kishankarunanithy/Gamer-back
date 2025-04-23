@@ -3,8 +3,15 @@ import { cw } from './middlewares/controllerWrapper.js';
 import { categoryController } from './controllers/categoryController.js';
 import { challengeController } from "./controllers/challengeContoller";
 import { difficultyController } from './controllers/difficultyController.js';
+import { userController } from './controllers/userController.js';
 
 const router = Router();
+
+router.get("/users", cw(userController.getAllUsers));
+router.get("/users/:id", cw(userController.getOneUser));
+router.post("/users", cw(userController.createUser));
+router.patch("/users/:id", cw(userController.editUser));
+router.delete("/users/:id", cw(userController.deleteUser));
 // Routes pour les challenges
 router.get("/challenges", cw(challengeController.showAllChallenges));
 router.get("/challenges/:id", cw(challengeController.showOneChallenge));
@@ -25,7 +32,5 @@ router.patch("/difficulties/:id", cw(difficultyController.updateDifficulty));
 router.delete("/difficulties/:id", cw(difficultyController.deleteDifficulty));
 
 
-// Exemple avec controllerWrapper
-// router.get("/users", cw(userController.getOneUser));
 
 export { router }
