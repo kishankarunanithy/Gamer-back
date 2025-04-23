@@ -21,6 +21,54 @@ const userController = {
         res.status(200).json(user);
     },
 
+    async createUser(req, res) {
+        // Récupérer les données saisies par l'utilisateur.
+        const { pseudo, email, avatar, password, confirmPassword } = req.body;
+        console.log(req.body);
+
+        // S'assurer que les champs obligatoires sont renseignés.
+        if (!pseudo || !email || !password || !confirmPassword) {
+            return res.status(400).json({ message: 'Les champs pseudo, email, mot de passe et confirmation de mot de passe sont obligatoires.' });
+        }
+
+        // S'assurer que le mot de passe et sa confirmation sont identiques.
+        if (password !== confirmPassword) {
+            return res.status(400).json({ message: "Le mot de passe et sa confirmation doivent être identiques." });
+        }
+
+        // Vérifier si le pseudo existe déjà.
+        const existingPseudo = await User.findOne({
+            where: { pseudo: pseudo }
+        });
+
+        if (existingPseudo) {
+            return res.status(409).json({ message: "Pseudo non disponibl." });
+        }
+
+        // Vérifier si l'adresse mail existe déjà en BDD.
+        const existingEmail = await User.findOne({
+            where: { email: email }
+        });
+
+        if (existingEmail) {
+            return res.status(409).json({ message: "Cet email est déjà utilisé." });
+        }
+
+        // Enregistrer l'utilisateur en BDD.
+        const newUser = await User.create({
+            pseudo,
+            email,
+            password,
+            avatar
+        });
+
+        // Exclure le mot de passe de la réponse.
+        const newUserWithoutPassord = { pseudo, email, avatar };
+
+        res.status(201).json(newUserWithoutPassord);
+        
+    },
+
     async editUser(req, res) {
         const userId = parseInt(req.params.id);
         const user = await User.findByPk(userId, {
