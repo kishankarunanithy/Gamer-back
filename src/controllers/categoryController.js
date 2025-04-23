@@ -17,7 +17,7 @@ const categoryController = {
       const result = await Category.findByPk(categoryId);
 
       if (!result) {
-        res.status(404).send("lists not found");
+        res.status(404).send("Category not found");
       }
 
       res.status(200).json(result);
@@ -35,6 +35,10 @@ const categoryController = {
   async updateCategory(req, res) {
 
       const category = await Category.findByPk(req.params.id);
+
+      if (!category) {
+        res.status(404).send("Category not found");
+      }
 
       const { name, color } = req.body;
 
@@ -55,6 +59,10 @@ const categoryController = {
   async deleteCategory (req, res) {
 
       const category = await Category.findByPk(req.params.id);
+
+      if (!category) {
+        res.status(404).send("Category not found");
+      }
 
       await category.destroy();
 
