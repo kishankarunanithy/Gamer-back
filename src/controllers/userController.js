@@ -40,6 +40,20 @@ const userController = {
 
         await user.save();
         res.status(200).json(user);
+    },
+
+    async deleteUser(req, res) {
+        const userId = parseInt(req.params.id);
+        const user = await User.findByPk(userId, {
+            attributes: { exclude: ["password"] }
+        });
+
+        if (!user) {
+            return res.status(404).json({ error: "Cet utilisateur n'existe pas." });
+        }
+
+        await user.destroy();
+        res.sendStatus(204);
     }
 }
 
