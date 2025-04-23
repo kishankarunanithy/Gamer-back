@@ -3,7 +3,9 @@ import { Challenge, User, Category, Difficulty } from "../models/association.js"
 const challengeController = {
   // récupère tous les challenges
   async showAllChallenges(req, res) {
-    const result = await Challenge.findAll();
+    const result = await Challenge.findAll({
+        include: [User, Category, Difficulty],
+      });
     res.status(200).json(result);
   },
 
@@ -12,7 +14,7 @@ const challengeController = {
     const result = await Challenge.findByPk(req.params.id);
 
     if (!result) {
-      return next(); // si on trouve pas, on passe au 404
+      return next(); 
     }
 
     res.status(200).json(result);
@@ -22,7 +24,7 @@ const challengeController = {
   async createChallenge(req, res) {
     const { name, description, video_url, user_id, category_id, difficulty_id } = req.body;
 
-    // on vérifie que tous les champs obligatoires sont là
+    
     if (!name) return res.status(400).json({ message: "Le nom est requis." });
     if (!description) return res.status(400).json({ message: "La description est requise." });
     if (!video_url) return res.status(400).json({ message: "Le lien vidéo est requis." });
