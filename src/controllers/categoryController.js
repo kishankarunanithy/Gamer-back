@@ -50,6 +50,17 @@ const categoryController = {
 
       res.status(200).json(category);
   },
+
+  // DELETE CATEGORY
+  async deleteCategory (req, res) {
+
+      const category = await Category.findByPk(req.params.id);
+
+      await category.destroy();
+
+      res.sendStatus(204);
+  },
+
 }
 
 export { categoryController };
