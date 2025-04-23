@@ -23,17 +23,17 @@ const difficultyController = {
         const { name, color } = req.body;
         if (!name) return res.status(400).json("Une difficulté doit avoir un nom !");
 
-        if (!color)return res.status(400).json("Une difficulté doit avoir un nom !");
+        if (!color)return res.status(400).json("Une difficulté doit avoir une color !");
 
-        const difficulty = await Difficulty.create({ name, description });
+        const difficulty = await Difficulty.create( req.body );
         if (!difficulty) return res.status(400).json("Quelque chose s'est mal passé..");
-        res.status(200).json(difficulty);
+        res.status(201).json(difficulty);
     },
 
     // Modifie le nom ET/OU la couleur de la difficulté
-    async updateDifficulty() {
+    async updateDifficulty(req, res) {
         const { name, color } = req.body;
-        const id = req.params;
+        const { id }= req.params;
         if (!id) return res.status(404).json("Veuillez indiquer l'id de la difficulté");
         const difficulty = await Difficulty.findByPk(id);
         difficulty.name = name;
@@ -45,13 +45,10 @@ const difficultyController = {
 
     // Supprime la difficulté séléctionné 
     async deleteDifficulty(req, res) {
-        const diffId = req.params;
 
-        if (!diffId) return res.status(404).json("ID manquant ou incorrect !");
-        const difficulty = await Difficulty.findByPk(diffId);
-        await difficulty.removeDifficulty(difficulty);
-        await difficulty.reload();
-        res.status(200).json(difficulty);
+        const difficulty = await Difficulty.findByPk(req.params.id);
+        await difficulty.destroy();
+        return res.sendStatus(204)
 
     }
 };
