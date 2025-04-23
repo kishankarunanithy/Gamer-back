@@ -10,5 +10,6 @@ router.get("/", (req, res ) => {res.send("Hello les G@MERS")})
 // router.get("/users", cw(userController.getOneUser));
 
 router.get("/users", cw(userController.getAllUsers));
+router.get("/users/:id", cw(userController.getOneUser));
 
 export { router }
