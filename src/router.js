@@ -9,8 +9,8 @@ router.get("/", (req, res ) => {res.send("Hello les G@MERS")})
 
 router.get("/difficulties", cw(difficultyController.showAllDifficulties));
 router.get("/difficulties/:id", cw(difficultyController.showOneDifficulty));
-//router.post("/difficulties", cw(difficultyController.));
-//router.patch("/difficulties/:id", cw(difficultyController.));
-//router.delete("/difficulties/:id", cw(difficultyController.));
+router.post("/difficulties", cw(difficultyController.createDifficulty));
+router.patch("/difficulties/:id", cw(difficultyController.updateDifficulty));
+router.delete("/difficulties/:id", cw(difficultyController.deleteDifficulty));
 
 export { router }
