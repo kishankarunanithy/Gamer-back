@@ -3,7 +3,13 @@ import { User } from "../models/association.js"
 const userController = {
     async showAllUsers(req, res) {
         const users = await User.findAll({
-            attributes: { exclude: ["password"] }
+            attributes: { exclude: ["password"] },
+            include: [
+                { association: "challenges",
+                    include: [
+                        { association: "difficulty" },
+                        { association: "category"}]
+             }]            
         });
         res.status(200).json(users);  
     },
@@ -11,7 +17,13 @@ const userController = {
     async showOneUser(req, res) {
         const userId = parseInt(req.params.id);
         const user = await User.findByPk(userId, {
-            attributes: { exclude: ["password"] }
+            attributes: { exclude: ["password"] },
+            include: [
+                { association: "challenges",
+                    include: [
+                        { association: "difficulty" },
+                        { association: "category"}]
+             }]  
         });
 
         if (!user) {
