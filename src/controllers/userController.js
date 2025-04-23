@@ -1,14 +1,14 @@
 import { User } from "../models/association.js"
 
 const userController = {
-    async getAllUsers(req, res) {
+    async showAllUsers(req, res) {
         const users = await User.findAll({
             attributes: { exclude: ["password"] }
         });
         res.status(200).json(users);  
     },
 
-    async getOneUser(req, res) {
+    async showOneUser(req, res) {
         const userId = parseInt(req.params.id);
         const user = await User.findByPk(userId, {
             attributes: { exclude: ["password"] }
@@ -69,7 +69,7 @@ const userController = {
         
     },
 
-    async editUser(req, res) {
+    async updateUser(req, res) {
         const userId = parseInt(req.params.id);
         const user = await User.findByPk(userId, {
             attributes: { exclude: ["password"] }
