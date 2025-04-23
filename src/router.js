@@ -6,7 +6,6 @@ import { difficultyController } from './controllers/difficultyController.js';
 import { userController } from './controllers/userController.js';
 
 
-
 const router = Router();
 
 router.get("/users", cw(userController.showAllUsers));
