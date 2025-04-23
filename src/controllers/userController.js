@@ -19,6 +19,27 @@ const userController = {
         }
 
         res.status(200).json(user);
+    },
+
+    async editUser(req, res) {
+        const userId = parseInt(req.params.id);
+        const user = await User.findByPk(userId, {
+            attributes: { exclude: ["password"] }
+        });
+
+        if (!user) {
+            return res.status(404).json({ error: "Cet utilisateur n'existe pas." });
+        }
+
+        // Récupérer les données modifiées.
+        const { pseudo, email, password, avatar } = req.body;
+        if (pseudo) { user.pseudo = pseudo };
+        if (email) { user.email = email };
+        if (password) { user.password = password }; // Le mot de passe est hashé dans le modèle User avant enregistrement en BDD
+        if (avatar) { user.avatar = avatar };
+
+        await user.save();
+        res.status(200).json(user);
     }
 }
 

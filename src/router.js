@@ -11,5 +11,6 @@ router.get("/", (req, res ) => {res.send("Hello les G@MERS")})
 
 router.get("/users", cw(userController.getAllUsers));
 router.get("/users/:id", cw(userController.getOneUser));
+router.patch("/users/:id", cw(userController.editUser))
 
 export { router }
