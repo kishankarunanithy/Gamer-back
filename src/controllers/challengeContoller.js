@@ -1,7 +1,7 @@
 import { Challenge, User, Category, Difficulty } from "../models/association.js";
 
 const challengeController = {
-  // récupère tous les challenges
+  // récupère tous les challenges + includes
   async showAllChallenges(req, res) {
     const result = await Challenge.findAll({
         include: [User, Category, Difficulty],
