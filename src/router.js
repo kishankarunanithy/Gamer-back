@@ -1,9 +1,15 @@
 import { Router } from 'express';
 import { cw } from './middlewares/controllerWrapper.js';
+import { categoryController } from './controllers/categoryController.js';
+
 
 const router = Router();
 
-router.get("/", (req, res ) => {res.send("Hello les G@MERS")})
+router.get("/categories", cw(categoryController.findAllCategories));
+router.get("/categories/:id", cw(categoryController.findOneCategory));
+router.post("/categories/", cw(categoryController.createCategory));
+router.patch("/categories/:id", cw(categoryController.updateCategory));
+router.delete("/categories/:id", cw(categoryController.deleteCategory));
 
 // Exemple avec controllerWrapper
 // router.get("/users", cw(userController.getOneUser));
