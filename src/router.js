@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { cw } from './middlewares/controllerWrapper.js';
 import { categoryController } from './controllers/categoryController.js';
-import { challengeController } from "./controllers/challengeContoller";
+import { challengeController } from "./controllers/challengeContoller.js";
 
 const router = Router();
 // Routes pour les challenges
