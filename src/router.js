@@ -6,10 +6,10 @@ const router = Router();
 
 router.get("/", (req, res ) => {res.send("Hello les G@MERS")})
 
-router.get("/difficulties", difficultyController.);
-router.get("/difficulties/:id", difficultyController.);
-router.post("/difficulties", difficultyController.);
-router.patch("/difficulties/:id", difficultyController.);
-router.delete("/difficulties/:id", difficultyController.);
+router.get("/difficulties", cw(difficultyController.));
+router.get("/difficulties/:id", cw(difficultyController.));
+router.post("/difficulties", cw(difficultyController.));
+router.patch("/difficulties/:id", cw(difficultyController.));
+router.delete("/difficulties/:id", cw(difficultyController.));
 
 export { router }
