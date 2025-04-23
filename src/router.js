@@ -9,7 +9,7 @@ router.get("/", (req, res ) => {res.send("Hello les G@MERS")})
 router.get("/difficulties", difficultyController.);
 router.get("/difficulties/:id", difficultyController.);
 router.post("/difficulties", difficultyController.);
-router.patch("/difficulties", difficultyController.);
-router.delete("/difficulties", difficultyController.);
+router.patch("/difficulties/:id", difficultyController.);
+router.delete("/difficulties/:id", difficultyController.);
 
 export { router }
