@@ -1,7 +1,9 @@
+import { categoryController } from './controllers/categoryController.js';
 import { Router } from 'express'
 
 const router = Router();
 
-router.get("/", (req, res ) => {res.send("Hello les G@MERS")})
+router.get("/categories", categoryController.findAllCategories);
+router.get("/categories/:id", categoryController.findOneCategory);
 
 export { router }
