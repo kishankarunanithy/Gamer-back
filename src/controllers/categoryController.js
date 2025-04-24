@@ -1,4 +1,5 @@
 import { Category } from "../models/association.js"
+import { notFound } from '../utils/errors.js';
 
 const categoryController = {
 
