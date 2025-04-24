@@ -1,5 +1,5 @@
 import { Category } from "../models/association.js"
-import { notFound } from '../utils/errors.js';
+import { notFound } from '../utils/error.js';
 
 const categoryController = {
 
@@ -57,8 +57,8 @@ const categoryController = {
       const category = await Category.findByPk(req.params.id);
 
       if (!category) {
-        res.status(404).send("Category not found");
-      }
+        notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
+    }
 
         await category.destroy();
         res.sendStatus(204);
