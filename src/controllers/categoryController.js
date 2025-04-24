@@ -11,53 +11,41 @@ const categoryController = {
 
     // GET CATEGORY BY ID
     async findOneCategory(req, res) {
-
+ 
         const categoryId = req.params.id
-            
-        const result = await Category.findByPk(categoryId);
+        const category = await Category.findByPk(categoryId);
 
-        if (!result) {
-            res.status(404).send("Category not found");
+        if (!category) {
+            notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
         }
 
-        res.status(200).json(result);
+        res.status(200).json(category);
     },
 
     // CREATE CATEGORIES
     async createCategory(req, res) {
 
-        const { name, color } = req.body;
-
-        if (!name || !color) {
-            res.status(404).send("Category have to get name and color !");
-        }
-
-        const result = await Category.create(req.body);
-
-        res.status(201).json(result);
+        const newCategory = await Category.create(req.body);
+        res.status(201).json(newCategory);
     },
 
-    // UPDATE CATEGORIES
+    // UPDATE CATEGORY
     async updateCategory(req, res) {
 
         const category = await Category.findByPk(req.params.id);
 
         if (!category) {
-            res.status(404).send("Category not found");
+            notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
         }
 
         const { name, color } = req.body;
-
         for (const key in req.body) {
-
             if (category[key] !== undefined) {
-
             category[key] = req.body[key];
             }
         }
 
         await category.save();
-
         res.status(200).json(category);
     },
 
@@ -71,7 +59,6 @@ const categoryController = {
         }
 
         await category.destroy();
-
         res.sendStatus(204);
     },
 
