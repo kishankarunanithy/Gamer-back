@@ -1,4 +1,5 @@
 import { User } from "../models/association.js"
+import { notFound } from '../utils/error.js';
 
 const userController = {
     async showAllUsers(req, res) {
@@ -27,7 +28,7 @@ const userController = {
         });
 
         if (!user) {
-            return res.status(404).json({ error: "Cet utilisateur n'existe pas." });
+            notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
         }
 
         res.status(200).json(user);
@@ -88,14 +89,14 @@ const userController = {
         });
 
         if (!user) {
-            return res.status(404).json({ error: "Cet utilisateur n'existe pas." });
+            notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
         }
 
         // Récupérer les données modifiées.
         const { pseudo, email, password, avatar } = req.body;
         if (pseudo) { user.pseudo = pseudo };
         if (email) { user.email = email };
-        if (password) { user.password = password }; // Le mot de passe est hashé dans le modèle User avant enregistrement en BDD
+        if (password) { user.password = password }; // * Le mot de passe est hashé dans le modèle User avant enregistrement en BDD
         if (avatar) { user.avatar = avatar };
 
         await user.save();
@@ -109,7 +110,7 @@ const userController = {
         });
 
         if (!user) {
-            return res.status(404).json({ error: "Cet utilisateur n'existe pas." });
+            notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
         }
 
         await user.destroy();

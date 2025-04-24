@@ -1,4 +1,5 @@
-import { User, Challenge, Category, Difficulty, sequelize } from "../models/association.js";
+import { Difficulty } from "../models/association.js";
+import { notFound } from '../utils/error.js';
 
 const difficultyController = {
     
@@ -12,8 +13,8 @@ const difficultyController = {
         const result = await Difficulty.findByPk(req.params.id);
 
         if (!result) {
-            return next();
-        }
+            notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
+          }
 
         res.status(200).json(result);
     },
@@ -34,8 +35,14 @@ const difficultyController = {
     async updateDifficulty(req, res) {
         const { name, color } = req.body;
         const { id }= req.params;
-        if (!id) return res.status(404).json("Veuillez indiquer l'id de la difficulté");
+        
+        
         const difficulty = await Difficulty.findByPk(id);
+
+        if (!difficulty) {
+            notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
+        }
+
         difficulty.name = name;
         difficulty.color = color;
         await difficulty.save();

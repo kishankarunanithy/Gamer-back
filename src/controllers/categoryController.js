@@ -1,5 +1,5 @@
 import { Category } from "../models/association.js"
-import { notFound } from '../utils/errors.js';
+import { notFound } from '../utils/error.js';
 
 const categoryController = {
 
@@ -14,6 +14,7 @@ const categoryController = {
     async findOneCategory(req, res) {
  
         const categoryId = req.params.id
+            
         const category = await Category.findByPk(categoryId);
 
         if (!category) {
@@ -33,7 +34,7 @@ const categoryController = {
     // UPDATE CATEGORY
     async updateCategory(req, res) {
 
-        const category = await Category.findByPk(req.params.id);
+      const category = await Category.findByPk(req.params.id);
 
         if (!category) {
             notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
@@ -53,11 +54,11 @@ const categoryController = {
     // DELETE CATEGORY
     async deleteCategory (req, res) {
 
-        const category = await Category.findByPk(req.params.id);
+      const category = await Category.findByPk(req.params.id);
 
-        if (!category) {
-            res.status(404).send("Category not found");
-        }
+      if (!category) {
+        notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
+    }
 
         await category.destroy();
         res.sendStatus(204);

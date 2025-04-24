@@ -1,10 +1,11 @@
 import { Challenge, User, Category, Difficulty } from "../models/association.js";
+import { notFound } from '../utils/error.js';
 
 const challengeController = {
   // récupère tous les challenges + includes
   async showAllChallenges(req, res) {
     const result = await Challenge.findAll({
-        include: [User, Category, Difficulty],
+        include: ["users", "category", "difficulty"],
       });
     res.status(200).json(result);
   },
@@ -14,8 +15,8 @@ const challengeController = {
     const result = await Challenge.findByPk(req.params.id);
 
     if (!result) {
-      return next(); 
-    }
+      notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
+  }
 
     res.status(200).json(result);
   },
@@ -50,6 +51,10 @@ const challengeController = {
     const result = await Challenge.update(req.body, {
       where: { id: req.params.id }
     });
+
+    if (!result) {
+      notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
+    }
 
     res.status(200).json({ message: "Challenge modifié", result });
   },
