@@ -1,15 +1,19 @@
 import "dotenv/config"
-
-
 import express from "express"
 import cors from "cors"
-
 import { router } from "./src/router.js"
 import { errorHandler, notFoundHandler } from "./src/middlewares/controllerWrapper.js";
+import { xss } from "express-xss-sanitizer";
 
 const app = express();
 
 app.use(express.json());
+
+app.use(cors({
+    origin: ["http://localhost:5173"]
+}));
+
+app.use(xss());
 
 app.use(router);
 
