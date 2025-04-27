@@ -27,8 +27,8 @@ console.log("🚧 Ajout de challenges de test créés par les utilisateurs...");
 const speedrunMario = await Challenge.create({
   name: "Super Mario 64 - Any%",
   description: "Terminez Super Mario 64 le plus rapidement possible (Any%).",
-  video_url: "https://example.com/videos/sm64_rules.mp4", // URL des règles ou d'une vidéo d'exemple
-  user_id: speedDemon.id, // SpeedDemon crée le challenge
+  video_url: "https://example.com/videos/sm64_rules.mp4",
+  user_id: speedDemon.id,
   category_id: speedrun.id,
   difficulty_id: expert.id,
 });
@@ -37,7 +37,7 @@ const solvePortal = await Challenge.create({
   name: "Portal 2 - Cooperative Calibration Course",
   description: "Complétez le niveau 'Cooperative Calibration Course' en mode coopération.",
   video_url: "https://example.com/videos/portal2_coop.mp4",
-  user_id: gamerAlpha.id, // GamerAlpha crée le challenge
+  user_id: gamerAlpha.id,
   category_id: puzzle.id,
   difficulty_id: intermediate.id,
 });
@@ -46,7 +46,7 @@ const streetFighterCombo = await Challenge.create({
   name: "Street Fighter V - Master Combo Challenge",
   description: "Réalisez le combo le plus impressionnant avec votre personnage principal dans Street Fighter V.",
   video_url: "https://example.com/videos/sfv_combo.mp4",
-  user_id: comboKing.id, // ComboKing crée le challenge
+  user_id: comboKing.id,
   category_id: fightingGame.id,
   difficulty_id: legendary.id,
 });
@@ -55,7 +55,7 @@ const starcraftRush = await Challenge.create({
   name: "StarCraft II - Zergling Rush Master",
   description: "Réussissez un 'Zergling Rush' dévastateur avant la 3ème minute de jeu sur une carte prédéfinie.",
   video_url: "https://example.com/videos/sc2_rush.mp4",
-  user_id: masterStrategist.id, // MasterStrategist crée le challenge
+  user_id: masterStrategist.id,
   category_id: strategy.id,
   difficulty_id: expert.id,
 });
@@ -64,7 +64,7 @@ const celesteNoDeath = await Challenge.create({
   name: "Celeste - Chapter 1 No Death Run",
   description: "Terminez le Chapitre 1 de Celeste sans mourir une seule fois.",
   video_url: "https://example.com/videos/celeste_nodeath.mp4",
-  user_id: speedDemon.id, // SpeedDemon crée un autre challenge
+  user_id: speedDemon.id,
   category_id: platformer.id,
   difficulty_id: intermediate.id,
 });
