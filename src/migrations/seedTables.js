@@ -6,7 +6,6 @@ const gamerAlpha = await User.create({ pseudo: "AlphaPlayer", email: "alpha@game
 const speedDemon = await User.create({ pseudo: "SpeedyGonzales", email: "speedy@race.com", password: "SpeedyFast!456", role: "user", avatar_url: "https://example.com/avatars/speedy.png" });
 const masterStrategist = await User.create({ pseudo: "TacticMaster", email: "tactic@battle.org", password: "MasterPlan!789", role: "user", avatar_url: "https://example.com/avatars/tactic.png" });
 const comboKing = await User.create({ pseudo: "ComboGod", email: "combo@fight.gg", password: "UltraCombo!012", role: "user", avatar_url: "https://example.com/avatars/combo.png" });
-const adminUser = await User.create({ pseudo: "AdminPro", email: "admin@platform.gg", password: "AdminSecure!321", role: "admin", avatar_url: "https://example.com/avatars/admin.png" });
 
 // DIFFICULTY
 console.log("🚧 Ajout de difficultés de test...");
@@ -23,13 +22,13 @@ const fightingGame = await Category.create({ name: "Jeu de Combat", color: "#4CA
 const strategy = await Category.create({ name: "Stratégie", color: "#FF9800" });
 const platformer = await Category.create({ name: "Plateforme", color: "#673AB7" });
 
-// CHALLENGE
-console.log("🚧 Ajout de challenges de test...");
+// CHALLENGE (créés par les utilisateurs)
+console.log("🚧 Ajout de challenges de test créés par les utilisateurs...");
 const speedrunMario = await Challenge.create({
   name: "Super Mario 64 - Any%",
   description: "Terminez Super Mario 64 le plus rapidement possible (Any%).",
   video_url: "https://example.com/videos/sm64_rules.mp4", // URL des règles ou d'une vidéo d'exemple
-  user_id: adminUser.id, // L'admin crée le challenge
+  user_id: speedDemon.id, // SpeedDemon crée le challenge
   category_id: speedrun.id,
   difficulty_id: expert.id,
 });
@@ -38,7 +37,7 @@ const solvePortal = await Challenge.create({
   name: "Portal 2 - Cooperative Calibration Course",
   description: "Complétez le niveau 'Cooperative Calibration Course' en mode coopération.",
   video_url: "https://example.com/videos/portal2_coop.mp4",
-  user_id: adminUser.id,
+  user_id: gamerAlpha.id, // GamerAlpha crée le challenge
   category_id: puzzle.id,
   difficulty_id: intermediate.id,
 });
@@ -47,7 +46,7 @@ const streetFighterCombo = await Challenge.create({
   name: "Street Fighter V - Master Combo Challenge",
   description: "Réalisez le combo le plus impressionnant avec votre personnage principal dans Street Fighter V.",
   video_url: "https://example.com/videos/sfv_combo.mp4",
-  user_id: adminUser.id,
+  user_id: comboKing.id, // ComboKing crée le challenge
   category_id: fightingGame.id,
   difficulty_id: legendary.id,
 });
@@ -56,16 +55,16 @@ const starcraftRush = await Challenge.create({
   name: "StarCraft II - Zergling Rush Master",
   description: "Réussissez un 'Zergling Rush' dévastateur avant la 3ème minute de jeu sur une carte prédéfinie.",
   video_url: "https://example.com/videos/sc2_rush.mp4",
-  user_id: adminUser.id,
+  user_id: masterStrategist.id, // MasterStrategist crée le challenge
   category_id: strategy.id,
-  difficulty_id: hardChallenge.id, // Vous aviez 'hardChallenge' avant, j'utilise 'expert' qui me semble plus cohérent ici
+  difficulty_id: expert.id,
 });
 
 const celesteNoDeath = await Challenge.create({
   name: "Celeste - Chapter 1 No Death Run",
   description: "Terminez le Chapitre 1 de Celeste sans mourir une seule fois.",
   video_url: "https://example.com/videos/celeste_nodeath.mp4",
-  user_id: adminUser.id,
+  user_id: speedDemon.id, // SpeedDemon crée un autre challenge
   category_id: platformer.id,
   difficulty_id: intermediate.id,
 });
