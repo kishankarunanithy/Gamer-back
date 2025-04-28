@@ -3,6 +3,7 @@ import { User } from './User.js';
 import { Challenge } from './Challenge.js';
 import { Category } from './Category.js';
 import { Difficulty } from './Difficulty.js';
+import { Submission } from './Submission.js';
 
 Category.hasMany(Challenge, {
   as: 'challenges_has_category',
@@ -36,18 +37,16 @@ Challenge.belongsTo(User, {
 
 User.belongsToMany(Challenge, {
   as: 'challenges',
-  through: "submission",
+  through: Submission,
   foreignKey: "user_id",
-  otherKey: "challenge_id",
-  attributes: ['video_url']
+  otherKey: "challenge_id"
 });
 
 Challenge.belongsToMany(User, {
   as: "users",
-  through: "submission",
+  through: Submission,
   foreignKey: "challenge_id",
-  otherKey: "user_id",
-  attributes: ['video_url']
+  otherKey: "user_id"
 });
 
 export { User, Challenge, Category, Difficulty, sequelize }
