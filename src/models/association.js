@@ -38,14 +38,16 @@ User.belongsToMany(Challenge, {
   as: 'challenges',
   through: "submission",
   foreignKey: "user_id",
-  otherKey: "challenge_id"
+  otherKey: "challenge_id",
+  attributes: ['video_url']
 });
 
 Challenge.belongsToMany(User, {
   as: "users",
   through: "submission",
   foreignKey: "challenge_id",
-  otherKey: "user_id"
+  otherKey: "user_id",
+  attributes: ['video_url']
 });
 
 export { User, Challenge, Category, Difficulty, sequelize }
