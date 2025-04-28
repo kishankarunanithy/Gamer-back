@@ -4,6 +4,7 @@ import { categoryController } from './controllers/categoryController.js';
 import { challengeController } from "./controllers/challengeContoller.js";
 import { difficultyController } from './controllers/difficultyController.js';
 import { userController } from './controllers/userController.js';
+import { authController } from './controllers/authController.js';
 import { createCategorySchema, updateCategorySchema } from './schemas/categorySchemas.js';
 import { validate } from './middlewares/validation.js';
 import { createDifficultySchema, updateDifficultySchema } from './schemas/difficultySchemas.js';
@@ -13,6 +14,8 @@ import { createUserSchema, updateUserSchema } from './schemas/userSchemas.js';
 
 
 const router = Router();
+
+router.post("/login", cw(authController.loginUser));
 
 router.get("/users", cw(userController.showAllUsers));
 router.get("/users/:id", cw(userController.showOneUser));
