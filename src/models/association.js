@@ -21,7 +21,7 @@ Difficulty.hasMany(Challenge, {
 })
 
 Challenge.belongsTo(Difficulty, {
-  as: 'difficultie',
+  as: 'difficulty',
   foreignKey: "difficulty_id"
 })
 
