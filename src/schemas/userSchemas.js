@@ -22,10 +22,11 @@ const createUserSchema = Joi.object({
     'any.required': 'Le mot de passe est requis',
     'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
   }),
-  avatar: Joi.string().uri({scheme: ['http', 'https']}).required().messages({
-      'string.uri': 'URL de l\'avatar invalide. Veuillez fournir une URL valide commençant par http:// ou https://',
-      'any.required': 'L\'URL de l\'avatar est requise'
-    }),
+  avatar: Joi.string().trim().regex(/^[\w.-]+\.(jpg|jpeg|png|gif)$/i).messages({
+    'string.base': 'L\'avatar doit être une chaîne de caractères.',
+    'string.empty': 'Le nom de fichier de l\'avatar ne peut pas être vide.',
+    'string.regex.base': 'Le nom de fichier de l\'avatar doit être un nom de fichier image valide (jpg, jpeg, png, gif).',
+  }),
   role: Joi.string().valid("user", "admin").default('user')
   
 });
@@ -48,9 +49,11 @@ const updateUserSchema = Joi.object({
         'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
         'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
       }),
-      avatar: Joi.string().uri({scheme: ['http', 'https']}).messages({
-          'string.uri': 'URL de l\'avatar invalide. Veuillez fournir une URL valide commençant par http:// ou https://',
-        }),
+      avatar: Joi.string().trim().regex(/^[\w.-]+\.(jpg|jpeg|png|gif)$/i).messages({
+        'string.base': 'L\'avatar doit être une chaîne de caractères.',
+        'string.empty': 'Le nom de fichier de l\'avatar ne peut pas être vide.',
+        'string.regex.base': 'Le nom de fichier de l\'avatar doit être un nom de fichier image valide (jpg, jpeg, png, gif).',
+      }),
 
 }).min(1).messages({
   'object.min': 'Au moins un champ doit être fourni pour la mise à jour'
