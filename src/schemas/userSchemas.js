@@ -24,7 +24,6 @@ const createUserSchema = Joi.object({
   }),
   avatar: Joi.string().trim().regex(/^[\w.-]+\.(jpg|jpeg|png|gif)$/i).messages({
     'string.base': 'L\'avatar doit être une chaîne de caractères.',
-    'string.empty': 'Le nom de fichier de l\'avatar ne peut pas être vide.',
     'string.regex.base': 'Le nom de fichier de l\'avatar doit être un nom de fichier image valide (jpg, jpeg, png, gif).',
   }),
   role: Joi.string().valid("user", "admin").default('user')
@@ -51,7 +50,6 @@ const updateUserSchema = Joi.object({
       }),
       avatar: Joi.string().trim().regex(/^[\w.-]+\.(jpg|jpeg|png|gif)$/i).messages({
         'string.base': 'L\'avatar doit être une chaîne de caractères.',
-        'string.empty': 'Le nom de fichier de l\'avatar ne peut pas être vide.',
         'string.regex.base': 'Le nom de fichier de l\'avatar doit être un nom de fichier image valide (jpg, jpeg, png, gif).',
       }),
 
