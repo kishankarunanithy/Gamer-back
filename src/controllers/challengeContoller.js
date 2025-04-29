@@ -5,7 +5,13 @@ const challengeController = {
   // récupère tous les challenges + includes
   async showAllChallenges(req, res) {
     const result = await Challenge.findAll({
-        include: ["users", "category", "difficulty"],
+        include: [
+          { association: "users",
+            attributes: { exclude: ["password"] }
+          },
+          { association: "category" },
+          { association: "difficulty" }
+        ],
       });
     res.status(200).json(result);
   },
