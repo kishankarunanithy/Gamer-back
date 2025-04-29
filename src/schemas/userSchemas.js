@@ -22,7 +22,7 @@ const createUserSchema = Joi.object({
     'any.required': 'Le mot de passe est requis',
     'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
   }),
-  avatar: Joi.string().trim().regex(/^[\w.-]+\.(jpg|jpeg|png|gif)$/i).messages({
+  avatar: Joi.string().trim().regex(/^[\w.-]+\.(jpg|jpeg|png|gif)$/i).optional().allow('').messages({
     'string.base': 'L\'avatar doit être une chaîne de caractères.',
     'string.regex.base': 'Le nom de fichier de l\'avatar doit être un nom de fichier image valide (jpg, jpeg, png, gif).',
   }),
@@ -48,7 +48,7 @@ const updateUserSchema = Joi.object({
         'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
         'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
       }),
-      avatar: Joi.string().trim().regex(/^[\w.-]+\.(jpg|jpeg|png|gif)$/i).messages({
+      avatar: Joi.string().trim().regex(/^[\w.-]+\.(jpg|jpeg|png|gif)$/i).optional().allow('').messages({
         'string.base': 'L\'avatar doit être une chaîne de caractères.',
         'string.regex.base': 'Le nom de fichier de l\'avatar doit être un nom de fichier image valide (jpg, jpeg, png, gif).',
       }),
