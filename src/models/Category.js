@@ -1,9 +1,9 @@
 import { sequelize } from "./connection.js";
 import { Model, DataTypes } from "sequelize";
 
-export class Difficulty extends Model {}
+export class Category extends Model {}
 
-Difficulty.init(
+Category.init(
     {
         name: {
             type: DataTypes.TEXT,
@@ -17,6 +17,6 @@ Difficulty.init(
     },
     {
         sequelize,
-        tableName: 'difficulty'
+        tableName: 'category'
     }
 );
