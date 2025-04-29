@@ -21,7 +21,8 @@ const challengeController = {
 		const result = await Challenge.findByPk(req.params.id, {
 		include: [
 			{ association: "users",
-			attributes: { exclude: ["password"] }
+				attributes: { exclude: ["password"] },
+				through: { attributes: ["created_at", "video_url"] }
 			},
 			{ association: "category" },
 			{ association: "difficulty" }
