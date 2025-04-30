@@ -22,6 +22,18 @@ const createUserSchema = Joi.object({
     'any.required': 'Le mot de passe est requis',
     'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
   }),
+  confirmPassword: Joi.string()
+  .min(4)
+  .required()
+  .pattern(/[a-z]/)
+  .pattern(/[A-Z]/)
+  .pattern(/[0-9]/)
+  .pattern(/[!@#$%^&*(),.?":{}|<>]/)
+  .messages({
+    'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
+    'any.required': 'Le mot de passe est requis',
+    'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
+  }),
   avatar: Joi.string().trim().regex(/^[\w.-]+\.(jpg|jpeg|png|gif)$/i).optional().allow('').messages({
     'string.base': 'L\'avatar doit être une chaîne de caractères.',
     'string.regex.base': 'Le nom de fichier de l\'avatar doit être un nom de fichier image valide (jpg, jpeg, png, gif).',

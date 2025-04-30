@@ -55,7 +55,7 @@ const userController = {
         });
 
         if (existingPseudo) {
-            return res.status(409).json({ message: "Pseudo non disponibl." });
+            return res.status(409).json({ message: "Pseudo non disponible." });
         }
 
         // Vérifier si l'adresse mail existe déjà en BDD.
