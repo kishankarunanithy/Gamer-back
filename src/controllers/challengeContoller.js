@@ -1,4 +1,4 @@
-import { Challenge, User, Category, Difficulty } from "../models/association.js";
+import { Challenge, User, Category, Difficulty, Submission } from "../models/association.js";
 import { notFound } from '../utils/error.js';
 
 const challengeController = {
@@ -81,6 +81,21 @@ const challengeController = {
   async deleteChallenge(req, res) {
     await Challenge.destroy({ where: { id: req.params.id } });
     res.status(204).send();
+  },
+
+  async addSubmission(req, res) {
+    const { video_url } = req.body;
+    const challengeId = req.params.id;
+    const userId = req.user.id;
+
+    const newSubmission = await Submission.create({
+      user_id: userId,
+      challenge_id: challengeId,
+      video_url
+    });
+
+    res.status(200).json({ message: "Participation enregistrée avec succès", newSubmission });
+    
   }
 };
 

@@ -49,7 +49,7 @@ Challenge.belongsToMany(User, {
   otherKey: "user_id"
 });
 
-export { User, Challenge, Category, Difficulty, sequelize }
+export { User, Challenge, Category, Difficulty, Submission, sequelize }
 
 
 
