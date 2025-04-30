@@ -30,7 +30,8 @@ router.post("/challenges", isAuthed, validate(createChallengeSchema), cw(challen
 router.patch("/challenges/:id", isAuthed, validate(updateChallengeSchema), cw(challengeController.updateChallenge));
 router.delete("/challenges/:id", isAuthed, cw(challengeController.deleteChallenge));
 
-router.get("/categories", cw(categoryController.showCategories));
+router.get("/categories", cw(categoryController.findAllCategories));
+
 router.get("/categories/:id", cw(categoryController.showOneCategory));
 router.post("/categories/", isAuthed, validate(createCategorySchema), cw(categoryController.createCategory));
 router.patch("/categories/:id", isAuthed, validate(updateCategorySchema), cw(categoryController.updateCategory));
