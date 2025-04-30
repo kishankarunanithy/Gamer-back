@@ -36,8 +36,9 @@ const userController = {
 
     async createUser(req, res) {
         // Récupérer les données saisies par l'utilisateur.
-        const { pseudo, email, avatar, password, confirmPassword } = req.body;
-        console.log(req.body);
+        const { pseudo, email, password, confirmPassword } = req.body;
+        
+        const avatar_url = req.body.avatar_url || null;
 
         // S'assurer que les champs obligatoires sont renseignés.
         if (!pseudo || !email || !password || !confirmPassword) {
@@ -72,11 +73,11 @@ const userController = {
             pseudo,
             email,
             password,
-            avatar
+            avatar_url
         });
 
         // Exclure le mot de passe de la réponse.
-        const newUserWithoutPassord = { pseudo, email, avatar };
+        const newUserWithoutPassord = { pseudo, email, avatar_url };
 
         res.status(201).json(newUserWithoutPassord);
         
@@ -93,11 +94,11 @@ const userController = {
         }
 
         // Récupérer les données modifiées.
-        const { pseudo, email, password, avatar } = req.body;
+        const { pseudo, email, password, avatar_url } = req.body;
         if (pseudo) { user.pseudo = pseudo };
         if (email) { user.email = email };
         if (password) { user.password = password }; // * Le mot de passe est hashé dans le modèle User avant enregistrement en BDD
-        if (avatar) { user.avatar = avatar };
+        if (avatar_url) { user.avatar_url = avatar_url };
 
         await user.save();
         res.status(200).json(user);

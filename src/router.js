@@ -11,7 +11,7 @@ import { createDifficultySchema, updateDifficultySchema } from './schemas/diffic
 import { createChallengeSchema, updateChallengeSchema } from './schemas/challengeSchemas.js';
 import { createUserSchema, updateUserSchema } from './schemas/userSchemas.js';
 import { isAuthed } from './middlewares/isAuthed.js';
-
+import { handleFileUpload, handleMulterErrors, upload } from './middlewares/handleUploads.js';
 
 
 const router = Router();
@@ -20,8 +20,8 @@ router.post("/login", cw(authController.loginUser));
 
 router.get("/users", cw(userController.showAllUsers));
 router.get("/users/:id", cw(userController.showOneUser));
-router.post("/users", validate(createUserSchema), cw(userController.createUser));
-router.patch("/users/:id", isAuthed, validate(updateUserSchema), cw(userController.updateUser));
+router.post("/users", upload.single('avatar'), handleMulterErrors, handleFileUpload, validate(createUserSchema), cw(userController.createUser));
+router.patch("/users/:id", upload.single('avatar'), handleMulterErrors, handleFileUpload, isAuthed, validate(updateUserSchema), cw(userController.updateUser));
 router.delete("/users/:id", isAuthed, cw(userController.deleteUser));
 // Routes pour les challenges
 router.get("/challenges", cw(challengeController.showAllChallenges));
