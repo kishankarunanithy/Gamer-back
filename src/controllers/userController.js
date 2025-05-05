@@ -34,6 +34,19 @@ const userController = {
         res.status(200).json(user);
     },
 
+    async showCreatedChallengesByUser(req, res) {
+        const userId = parseInt(req.params.id);
+        const user = await User.findByPk(userId, {
+            attributes: { exclude: ["password"] },
+            include: [
+                { association: "challenges",
+                  where: { user_id: userId }
+            }]
+        })
+
+        res.status(200).json(user);
+    },
+
     async createUser(req, res) {
         // Récupérer les données saisies par l'utilisateur.
         const { pseudo, email, password, confirmPassword } = req.body;

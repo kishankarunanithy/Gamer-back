@@ -20,6 +20,9 @@ router.post("/login", cw(authController.loginUser));
 
 router.get("/users", cw(userController.showAllUsers));
 router.get("/users/:id", cw(userController.showOneUser));
+
+router.get("/users/:id/challenges", cw(userController.showCreatedChallengesByUser));
+
 router.post("/users", upload.single('avatar'), handleMulterErrors, handleFileUpload, validate(createUserSchema), cw(userController.createUser));
 router.patch("/users/:id", upload.single('avatar'), handleMulterErrors, handleFileUpload, isAuthed, validate(updateUserSchema), cw(userController.updateUser));
 router.delete("/users/:id", isAuthed, cw(userController.deleteUser));
