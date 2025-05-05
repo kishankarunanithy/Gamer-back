@@ -54,6 +54,7 @@ export const handleMulterErrors = (err, req, res, next) => {
 export const handleFileUpload = (req, res, next) => {
 
   if (!req.file) {
+    req.body.avatar_url = "avatar-1746452023418-876452023418.png"
     return next();
   }
   
