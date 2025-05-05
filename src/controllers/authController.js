@@ -35,7 +35,7 @@ const authController = {
             process.env.JWT_SECRET,
             { expiresIn: "2h" }
         );
-        res.status(200).json({ token });
+        res.status(200).json({ token, userId: user.id });
     }
 }
 

@@ -25,7 +25,8 @@ User.init(
     },
     avatar_url: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: "avatar-1746452023418-876452023418.png"
     },
     role: {
       type: DataTypes.ENUM("user", "admin"),
