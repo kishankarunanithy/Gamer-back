@@ -40,11 +40,12 @@ const userController = {
             attributes: { exclude: ["password"] },
             include: [
                 { association: "challenges",
-                  where: { user_id: userId }
+                  where: { user_id: userId },
+                  include: ["category", "difficulty", "users"]
             }]
         })
 
-        res.status(200).json(user);
+        res.status(200).json(user.challenges);
     },
 
     async createUser(req, res) {
