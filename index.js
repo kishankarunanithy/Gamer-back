@@ -15,6 +15,8 @@ app.use(cors({
 
 app.use(xss());
 
+app.use("/uploads", express.static("public/uploads"));
+
 app.use(router);
 
 app.use(notFoundHandler);

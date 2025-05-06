@@ -15,6 +15,7 @@ const challengeController = {
 		],
         order: [["created_at", "DESC"]],
         limit: 10
+        
       });
     res.status(200).json(result);
   },
