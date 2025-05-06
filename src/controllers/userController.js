@@ -48,6 +48,30 @@ const userController = {
         res.status(200).json(user.challenges);
     },
 
+    async showSubmissionChallengeByUser(req, res) {
+        const userId = parseInt(req.params.id);
+        const user = await User.findByPk(userId, {
+          attributes: { exclude: ["password"] },
+          include: [
+            { 
+              association: "submissions", // Cibler directement l'association des soumissions
+              attributes: { exclude: ["user_id", "challenge_id"] }, // Exclure les clés étrangères
+              include: [
+                {
+                  association: "challenge", // Inclure les détails du challenge lié
+                  include: [
+                    { association: "difficulty" },
+                    { association: "category"}
+                  ]
+                }
+              ]
+            }
+          ]  
+        });
+
+        res.status(200).json(user.submissions);
+    },
+
     async createUser(req, res) {
         // Récupérer les données saisies par l'utilisateur.
         const { pseudo, email, password, confirmPassword } = req.body;

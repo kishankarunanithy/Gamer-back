@@ -49,6 +49,21 @@ Challenge.belongsToMany(User, {
   otherKey: "user_id"
 });
 
+Submission.belongsTo(Challenge, {
+  as: 'challenge',
+  foreignKey: 'challenge_id'
+});
+
+User.hasMany(Submission, {
+  as: 'submissions',
+  foreignKey: 'user_id'
+});
+
+Submission.belongsTo(User, {
+  as: 'usersub',
+  foreignKey: 'user_id'
+});
+
 export { User, Challenge, Category, Difficulty, Submission, sequelize }
 
 
