@@ -20,13 +20,12 @@ router.post("/login", cw(authController.loginUser));
 
 router.get("/users", cw(userController.showAllUsers));
 router.get("/users/:id", cw(userController.showOneUser));
-
 router.get("/users/:id/challenges", cw(userController.showCreatedChallengesByUser));
 router.get("/users/:id/submissions", cw(userController.showSubmissionChallengeByUser));
-
 router.post("/users", upload.single('avatar'), handleMulterErrors, handleFileUpload, validate(createUserSchema), cw(userController.createUser));
 router.patch("/users/:id", upload.single('avatar'), handleMulterErrors, handleFileUpload, isAuthed, validate(updateUserSchema), cw(userController.updateUser));
 router.delete("/users/:id", isAuthed, cw(userController.deleteUser));
+
 // Routes pour les challenges
 router.get("/challenges", cw(challengeController.showAllChallenges));
 router.get("/challenges/:id", cw(challengeController.showOneChallenge));
@@ -36,7 +35,6 @@ router.delete("/challenges/:id", isAuthed, cw(challengeController.deleteChalleng
 router.post("/challenges/:id/submissions", isAuthed, cw(challengeController.addSubmission));
 
 router.get("/categories", cw(categoryController.findAllCategories));
-
 router.get("/categories/:id", cw(categoryController.showOneCategory));
 router.post("/categories/", isAuthed, validate(createCategorySchema), cw(categoryController.createCategory));
 router.patch("/categories/:id", isAuthed, validate(updateCategorySchema), cw(categoryController.updateCategory));
