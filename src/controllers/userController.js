@@ -69,7 +69,7 @@ const userController = {
           ]  
         });
 
-        res.status(200).json(user);
+        res.status(200).json(user.submissions);
     },
 
     async createUser(req, res) {
