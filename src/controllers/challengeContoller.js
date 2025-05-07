@@ -65,18 +65,21 @@ const challengeController = {
     res.status(201).json(result);
   },
 
-  // modifie un challenge
-  async updateChallenge(req, res) {
-    const result = await Challenge.update(req.body, {
-      where: { id: req.params.id }
-    });
+    // modifie un challenge
+    async updateChallenge(req, res) {
+      await Challenge.update(req.body, {
+        where: { id: req.params.id }
+      });
 
-    if (!result) {
-      notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
-    }
+      const updatedChallenge = await Challenge.findByPk(req.params.id);
 
-    res.status(200).json({ message: "Challenge modifié", result });
-  },
+      if (!updatedChallenge) {
+        return res.status(404).json({ message: `Challenge avec l'ID ${req.params.id} non trouvé` });
+      }
+
+      res.status(200).json(updatedChallenge);
+    },
+
 
   // supprime un challenge
   async deleteChallenge(req, res) {
