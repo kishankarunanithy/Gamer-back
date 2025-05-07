@@ -27,7 +27,7 @@ console.log("🚧 Ajout de challenges de test créés par les utilisateurs...");
 const speedrunMario = await Challenge.create({
   name: "Super Mario 64 - Any%",
   description: "Terminez Super Mario 64 le plus rapidement possible (Any%).",
-  video_url: "https://example.com/videos/sm64_rules.mp4",
+  video_url: "https://youtu.be/4VFv9K3TX9Y?si=4Uk-o1kVT22U04Cl",
   user_id: speedDemon.id,
   category_id: speedrun.id,
   difficulty_id: expert.id,
@@ -36,7 +36,7 @@ const speedrunMario = await Challenge.create({
 const solvePortal = await Challenge.create({
   name: "Portal 2 - Cooperative Calibration Course",
   description: "Complétez le niveau 'Cooperative Calibration Course' en mode coopération.",
-  video_url: "https://example.com/videos/portal2_coop.mp4",
+  video_url: "https://youtu.be/sa6ebbwijFE?si=Xh6Ql3DSeGZ5fhbu",
   user_id: gamerAlpha.id,
   category_id: puzzle.id,
   difficulty_id: intermediate.id,
@@ -45,7 +45,7 @@ const solvePortal = await Challenge.create({
 const streetFighterCombo = await Challenge.create({
   name: "Street Fighter V - Master Combo Challenge",
   description: "Réalisez le combo le plus impressionnant avec votre personnage principal dans Street Fighter V.",
-  video_url: "https://example.com/videos/sfv_combo.mp4",
+  video_url: "https://youtu.be/l562CIiZnFY?si=1J3N3Bxl_oOFx2QU",
   user_id: comboKing.id,
   category_id: fightingGame.id,
   difficulty_id: legendary.id,
@@ -54,7 +54,7 @@ const streetFighterCombo = await Challenge.create({
 const starcraftRush = await Challenge.create({
   name: "StarCraft II - Zergling Rush Master",
   description: "Réussissez un 'Zergling Rush' dévastateur avant la 3ème minute de jeu sur une carte prédéfinie.",
-  video_url: "https://example.com/videos/sc2_rush.mp4",
+  video_url: "https://youtu.be/zZSfc7oI8_g?si=QVZch7PZU1IgE8d9",
   user_id: masterStrategist.id,
   category_id: strategy.id,
   difficulty_id: expert.id,
@@ -63,7 +63,7 @@ const starcraftRush = await Challenge.create({
 const celesteNoDeath = await Challenge.create({
   name: "Celeste - Chapter 1 No Death Run",
   description: "Terminez le Chapitre 1 de Celeste sans mourir une seule fois.",
-  video_url: "https://example.com/videos/celeste_nodeath.mp4",
+  video_url: "https://youtu.be/_tKxCygswGE?si=zr0WPLMEHn1UiyEz",
   user_id: speedDemon.id,
   category_id: platformer.id,
   difficulty_id: intermediate.id,
@@ -71,20 +71,20 @@ const celesteNoDeath = await Challenge.create({
 
 // ADD SUBMISSION'S USER TO CHALLENGE WITH VIDEO_URL
 console.log("🚧 Ajout de participants aux challenges avec leurs submissions (video_url)...");
-await speedrunMario.addUser(speedDemon, { through: { video_url: "https://example.com/submissions/speedy_sm64_1.mp4" } });
-await speedrunMario.addUser(gamerAlpha, { through: { video_url: "https://example.com/submissions/alpha_sm64_2.webm" } });
+await speedrunMario.addUser(speedDemon, { through: { video_url: "https://youtu.be/gjzMCJmT27A?si=98s9YxgpEfOZOeFY" } });
+await speedrunMario.addUser(gamerAlpha, { through: { video_url: "https://youtu.be/hTo8fH8Kolc?si=wIeiIc9uy87R9eHI" } });
 
-await solvePortal.addUser(gamerAlpha, { through: { video_url: "https://example.com/submissions/alpha_portal_coop.mov" } });
-await solvePortal.addUser(masterStrategist, { through: { video_url: "https://example.com/submissions/tactic_portal_coop.avi" } });
+await solvePortal.addUser(gamerAlpha, { through: { video_url: "https://youtu.be/zh8MNIJvi_E?si=_j4EPZ6LmMsGkr1w" } });
+await solvePortal.addUser(masterStrategist, { through: { video_url: "https://youtu.be/zawwp9TSV7s?si=gzNFxrvTNUOtUKWh" } });
 
-await streetFighterCombo.addUser(comboKing, { through: { video_url: "https://example.com/submissions/combo_sfv_best.mkv" } });
-await streetFighterCombo.addUser(speedDemon, { through: { video_url: "https://example.com/submissions/speedy_sfv_ok.mp4" } });
+await streetFighterCombo.addUser(comboKing, { through: { video_url: "https://youtu.be/QeOiW5j-ldk?si=k8VlNWzzoWVQlEuI" } });
+await streetFighterCombo.addUser(speedDemon, { through: { video_url: "https://youtu.be/SYtLmGH3lrU?si=gAvS0O9DqmZp7gyU" } });
 
-await starcraftRush.addUser(masterStrategist, { through: { video_url: "https://example.com/submissions/tactic_sc2_rush.webm" } });
-await starcraftRush.addUser(gamerAlpha, { through: { video_url: "https://example.com/submissions/alpha_sc2_fail.mp4" } });
+await starcraftRush.addUser(masterStrategist, { through: { video_url: "https://youtu.be/2vlHvy5w6I0?si=vOZXZElPfgQd8MIl" } });
+await starcraftRush.addUser(gamerAlpha, { through: { video_url: "https://youtu.be/dbvwsZ9NM7g?si=gGJcfMOJA_QF2Q8I" } });
 
-await celesteNoDeath.addUser(speedDemon, { through: { video_url: "https://example.com/submissions/speedy_celeste_win.mp4" } });
-await celesteNoDeath.addUser(comboKing, { through: { video_url: "https://example.com/submissions/combo_celeste_close.mov" } });
+await celesteNoDeath.addUser(speedDemon, { through: { video_url: "https://youtu.be/se8BHeLC0Gw?si=8XwJIBQQw21vOV1G" } });
+await celesteNoDeath.addUser(comboKing, { through: { video_url: "https://youtu.be/i4n6HVtbBX8?si=951S-qQv9hzPePjp" } });
 
 console.log("✅ Migration OK ! Fermeture de la base...");
 await sequelize.close();
