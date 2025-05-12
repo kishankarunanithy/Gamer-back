@@ -1,4 +1,4 @@
-import { User } from "../models/association.js"
+import { Submission, User } from "../models/association.js"
 import { notFound } from '../utils/error.js';
 
 const userController = {
@@ -55,7 +55,6 @@ const userController = {
           include: [
             { 
               association: "submissions", // Cibler directement l'association des soumissions
-              attributes: { exclude: ["user_id", "challenge_id"] }, // Exclure les clés étrangères
               include: [
                 {
                   association: "challenge", // Inclure les détails du challenge lié
@@ -153,6 +152,43 @@ const userController = {
         }
 
         await user.destroy();
+        res.sendStatus(204);
+    }, 
+    
+    async updateUserSubmission(req, res, next) {
+        // Récupérer les id de l'utilisateur et du challenge.
+        const { userId, challengeId } = req.params;
+        const video_url = req.body;
+
+        // Rechercher la participation avec la clé composite.
+        const submission = await Submission.findOne({
+            where: {
+                user_id: userId,
+                challenge_id: challengeId
+            }
+        });
+
+        if (!submission) {
+            return next();
+        }
+
+        await submission.update(video_url);
+        res.status(200).json({ message: "Participation mise à jour avec succès", submission });
+    },
+
+    async deleteUserSubmission(req, res, next) {
+        const { userId, challengeId } = req.params;
+
+        const submission = await Submission.findOne({
+            where: {
+                user_id: userId,
+                challenge_id: challengeId
+            }
+        });
+        if (!submission) {
+            notFound("Participation non trouvée.");
+        }
+        await submission.destroy()
         res.sendStatus(204);
     }
 }
