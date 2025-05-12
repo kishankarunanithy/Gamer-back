@@ -55,10 +55,10 @@ const userController = {
           include: [
             { 
               association: "submissions", // Cibler directement l'association des soumissions
-              attributes: { exclude: ["user_id", "challenge_id"] }, // Exclure les clés étrangères
               include: [
                 {
                   association: "challenge", // Inclure les détails du challenge lié
+                  attributes: { exclude: ["user_id", "challenge_id"] }, // Exclure les clés étrangères
                   include: [
                     { association: "difficulty" },
                     { association: "category"}
@@ -69,7 +69,7 @@ const userController = {
           ]  
         });
 
-        res.status(200).json(user.submissions);
+        res.status(200).json(user.challenges);
     },
 
     async createUser(req, res) {
