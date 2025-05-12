@@ -157,13 +157,13 @@ const userController = {
     
     async updateUserSubmission(req, res, next) {
         // Récupérer les id de l'utilisateur et du challenge.
-        const { id, challengeId } = req.params;
+        const { userId, challengeId } = req.params;
         const video_url = req.body;
 
         // Rechercher la participation avec la clé composite.
         const submission = await Submission.findOne({
             where: {
-                user_id: id,
+                user_id: userId,
                 challenge_id: challengeId
             }
         });
@@ -174,6 +174,22 @@ const userController = {
 
         await submission.update(video_url);
         res.status(200).json({ message: "Participation mise à jour avec succès", submission });
+    },
+
+    async deleteUserSubmission(req, res, next) {
+        const { userId, challengeId } = req.params;
+
+        const submission = await Submission.findOne({
+            where: {
+                user_id: userId,
+                challenge_id: challengeId
+            }
+        });
+        if (!submission) {
+            notFound("Participation non trouvée.");
+        }
+        await submission.destroy()
+        res.sendStatus(204);
     }
 }
 
