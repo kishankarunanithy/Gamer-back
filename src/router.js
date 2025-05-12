@@ -24,6 +24,7 @@ router.get("/users/:id/challenges", cw(userController.showCreatedChallengesByUse
 router.get("/users/:id/submissions", cw(userController.showSubmissionChallengeByUser));
 router.post("/users", upload.single('avatar'), handleMulterErrors, handleFileUpload, validate(createUserSchema), cw(userController.createUser));
 router.patch("/users/:id", upload.single('avatar'), handleMulterErrors, handleFileUpload, isAuthed, validate(updateUserSchema), cw(userController.updateUser));
+router.patch("/users/:id/submissions/:challengeId", cw(userController.updateUserSubmission));
 router.delete("/users/:id", isAuthed, cw(userController.deleteUser));
 
 // Routes pour les challenges
