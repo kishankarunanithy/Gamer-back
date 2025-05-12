@@ -81,11 +81,23 @@ const challengeController = {
     },
 
 
-  // supprime un challenge
-  async deleteChallenge(req, res) {
-    await Challenge.destroy({ where: { id: req.params.id } });
-    res.status(204).send();
-  },
+  
+      // supprime un challenge
+    async deleteChallenge(req, res) {
+      const challenge = await Challenge.findByPk(req.params.id);
+
+      if (!challenge) {
+        return res.status(404).json({ message: "Challenge introuvable" });
+      }
+
+      if (challenge.user_id !== req.user.id) {
+        return res.status(403).json({ message: "Non autorisé à supprimer ce challenge" });
+      }
+
+      await challenge.destroy();
+      res.status(204).send();
+    },
+
 
   async addSubmission(req, res) {
     const { video_url } = req.body;
