@@ -112,7 +112,19 @@ const challengeController = {
 
     res.status(200).json({ message: "Participation enregistrée avec succès", newSubmission });
     
-  }
+  },
+  async showChallengesByUser(req, res) {
+    const userId = parseInt(req.params.id);
+  
+    const challenges = await Challenge.findAll({
+      where: { user_id: userId },
+      include: ["category", "difficulty", "users"],
+      order: [["created_at", "DESC"]],
+    });
+  
+    res.status(200).json(challenges);
+  },
 };
 
 export { challengeController };
+

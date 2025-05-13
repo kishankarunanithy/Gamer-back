@@ -31,6 +31,8 @@ router.delete("/users/:userId/submissions/:challengeId", isAuthed, cw(userContro
 // Routes pour les challenges
 router.get("/challenges", cw(challengeController.showAllChallenges));
 router.get("/challenges/:id", cw(challengeController.showOneChallenge));
+router.get("/challenges/user/:id", challengeController.showChallengesByUser);
+
 router.post("/challenges", isAuthed, validate(createChallengeSchema), cw(challengeController.createChallenge));
 router.patch("/challenges/:id", isAuthed, validate(updateChallengeSchema), cw(challengeController.updateChallenge));
 router.delete("/challenges/:id", isAuthed, cw(challengeController.deleteChallenge));
