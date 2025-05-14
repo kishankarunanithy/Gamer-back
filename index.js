@@ -6,6 +6,7 @@ import { errorHandler, notFoundHandler } from "./src/middlewares/controllerWrapp
 import { xss } from "express-xss-sanitizer";
 
 const app = express();
+app.set("trust proxy", 1); 
 
 app.use(express.json());
 
