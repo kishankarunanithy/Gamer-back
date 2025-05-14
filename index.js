@@ -14,6 +14,12 @@ app.use(cors({
     origin: ["http://localhost:5173"]
 }));
 
+app.get("/", (req, res) => {
+    res.send("✅ API GamerChallenges est bien en ligne !");
+  });
+  
+  app.use(router);
+  
 app.use(xss());
 
 app.use("/uploads", express.static("public/uploads"));
