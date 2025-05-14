@@ -5,20 +5,27 @@ const challengeController = {
 
   // récupère tous les challenges + includes
   async showAllChallenges(req, res) {
-    const result = await Challenge.findAll({
+    try {
+      const result = await Challenge.findAll({
         include: [
-          { association: "users",
+          {
+            association: "user", 
             attributes: { exclude: ["password"] }
           },
           { association: "category" },
           { association: "difficulty" }
         ],
-            order: [["created_at", "DESC"]],
-            limit: 10
-          
-          });
-    res.status(200).json(result);
+        order: [["created_at", "DESC"]],
+        limit: 10
+      });
+  
+      res.status(200).json(result);
+    } catch (error) {
+      console.error("❌ Erreur showAllChallenges:", error);
+      res.status(500).json({ error: "Une erreur inattendue est survenue, merci de réessayer plus tard." });
+    }
   },
+  
 
   // récupère un challenge avec son id
   async showOneChallenge(req, res, next) {
