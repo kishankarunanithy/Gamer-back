@@ -3,9 +3,9 @@ import { User, Challenge, Category, Difficulty, sequelize } from "../models/asso
 // USER
 console.log("🚧 Ajout d'utilisateurs de test...");
 const gamerAlpha = await User.create({ pseudo: "AlphaPlayer", email: "alpha@game.net", password: "AlphaPass!123", role: "user" });
-const speedDemon = await User.create({ pseudo: "SpeedyGonzales", email: "speedy@race.com", password: "SpeedyFast!456", role: "user", avatar_url: "https://example.com/avatars/speedy.png" });
-const masterStrategist = await User.create({ pseudo: "TacticMaster", email: "tactic@battle.org", password: "MasterPlan!789", role: "user", avatar_url: "https://example.com/avatars/tactic.png" });
-const comboKing = await User.create({ pseudo: "ComboGod", email: "combo@fight.gg", password: "UltraCombo!012", role: "user", avatar_url: "https://example.com/avatars/combo.png" });
+const speedDemon = await User.create({ pseudo: "SpeedyGonzales", email: "speedy@race.com", password: "SpeedyFast!456", role: "user" });
+const masterStrategist = await User.create({ pseudo: "TacticMaster", email: "tactic@battle.org", password: "MasterPlan!789", role: "user" });
+const comboKing = await User.create({ pseudo: "ComboGod", email: "combo@fight.gg", password: "UltraCombo!012", role: "user" });
 
 // DIFFICULTY
 console.log("🚧 Ajout de difficultés de test...");

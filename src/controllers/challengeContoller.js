@@ -7,16 +7,16 @@ const challengeController = {
   async showAllChallenges(req, res) {
     const result = await Challenge.findAll({
         include: [
-			{ association: "users",
-				attributes: { exclude: ["password"] }
-			},
-			{ association: "category" },
-			{ association: "difficulty" }
-		],
-        order: [["created_at", "DESC"]],
-        limit: 10
-        
-      });
+          { association: "users",
+            attributes: { exclude: ["password"] }
+          },
+          { association: "category" },
+          { association: "difficulty" }
+        ],
+            order: [["created_at", "DESC"]],
+            limit: 10
+          
+          });
     res.status(200).json(result);
   },
 
