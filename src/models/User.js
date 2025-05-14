@@ -1,5 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "./connection.js"; 
+import argon2 from "argon2";
 
 export class User extends Model {}
 
@@ -22,9 +23,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    avatar: {
+    avatar_url: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: "avatar-1746452023418-876452023418.png"
     },
     role: {
       type: DataTypes.ENUM("user", "admin"),
@@ -35,5 +37,18 @@ User.init(
   {
     sequelize,
     tableName: "users",
+    // Hash du mot de passe avant enregistrement en BDD avant création ou mise à jour de l'utilisateur.
+    hooks: {
+      beforeCreate: async (user) => {
+        if (user.password) {
+          user.password = await argon2.hash(user.password);
+        }
+      },
+      beforeUpdate: async (user) => {
+        if (user.changed("password")) {
+          user.password = await argon2.hash(user.password);
+        }
+      }
+    }
   }
 );
