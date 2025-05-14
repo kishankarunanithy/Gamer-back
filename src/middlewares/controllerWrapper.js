@@ -12,7 +12,7 @@ function cw(controller) {
 
 // * Middleware de gestion d'erreurs
 function errorHandler(err, req, res, next) {
-console.error(err);
+    console.error("💥 Erreur non gérée :", err);
 
     // * Si c'est une de nos erreurs personnalisées 404 ou 400 (schémas)
     if (err instanceof AppError) {
