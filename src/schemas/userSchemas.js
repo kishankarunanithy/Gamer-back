@@ -60,6 +60,26 @@ const updateUserSchema = Joi.object({
         'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
         'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
       }),
+      newPassword: Joi.string()
+      .min(4)
+      .pattern(/[a-z]/)
+      .pattern(/[A-Z]/)
+      .pattern(/[0-9]/)
+      .pattern(/[!@#$%^&*(),.?":{}|<>]/)
+      .messages({
+        'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
+        'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
+      }),
+      confirmNewPassword: Joi.string()
+      .min(4)
+      .pattern(/[a-z]/)
+      .pattern(/[A-Z]/)
+      .pattern(/[0-9]/)
+      .pattern(/[!@#$%^&*(),.?":{}|<>]/)
+      .messages({
+        'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
+        'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
+      }),
       avatar_url: Joi.string().trim().regex(/^avatar-\d+-\d+\.(jpg|jpeg|png|gif)$/i).optional().allow('').messages({
         'string.base': 'L\'avatar doit être une chaîne de caractères.',
         'string.regex.base': 'Le nom de fichier de l\'avatar doit être un nom de fichier image valide (jpg, jpeg, png, gif).',
