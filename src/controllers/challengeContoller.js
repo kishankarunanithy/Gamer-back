@@ -15,7 +15,8 @@ const challengeController = {
           { association: "category" },
           { association: "difficulty" }
         ],
-        order: [["created_at", "DESC"]],
+        order: [["createdAt", "DESC"]],
+
         limit: 10
       });
   
