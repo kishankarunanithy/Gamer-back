@@ -6,12 +6,6 @@ import { errorHandler, notFoundHandler } from "./src/middlewares/controllerWrapp
 import { xss } from "express-xss-sanitizer";
 
 const app = express();
-app.set("trust proxy", 1); 
-
-app.use(express.json());
-
-
-
 const allowedOrigins = [
   'http://localhost:5173',
   'https://gamer-front.vercel.app',
@@ -28,6 +22,13 @@ app.use(cors({
   },
   credentials: true
 }));
+app.set("trust proxy", 1); 
+
+app.use(express.json());
+
+
+
+
 
 
 
