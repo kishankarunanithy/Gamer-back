@@ -34,7 +34,7 @@ const challengeController = {
 		include: [
 			{ association: "users",
 				attributes: { exclude: ["password"] },
-				through: { attributes: ["created_at", "video_url"] }
+				through: { attributes: ["createdAt", "video_url"] }
 			},
 			{ association: "category" },
 			{ association: "difficulty" }
@@ -127,7 +127,7 @@ const challengeController = {
     const challenges = await Challenge.findAll({
       where: { user_id: userId },
       include: ["category", "difficulty", "users"],
-      order: [["created_at", "DESC"]],
+      order: [["createdAt", "DESC"]],
     });
   
     res.status(200).json(challenges);
