@@ -6,13 +6,38 @@ import { errorHandler, notFoundHandler } from "./src/middlewares/controllerWrapp
 import { xss } from "express-xss-sanitizer";
 
 const app = express();
+app.use(cors({
+  origin: function (origin, callback) {
+    if (
+      !origin ||
+      origin.includes("localhost") ||
+      origin.includes("vercel.app")
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+app.set("trust proxy", 1); 
 
 app.use(express.json());
 
-app.use(cors({
-    origin: ["http://localhost:5173"]
-}));
 
+
+
+
+
+
+//app.get("/", (req, res) => {
+   // res.send("✅ API GamerChallenges est bien en ligne !");
+  //});
+
+  
 app.use(xss());
 
 app.use("/uploads", express.static("public/uploads"));
@@ -23,6 +48,8 @@ app.use(notFoundHandler);
 
 app.use(errorHandler);
 
-app.listen(3000, () => {
-    console.log(`🚀 Listening on http://localhost:3000`);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Serveur en ligne sur le port ${PORT}`);
 });

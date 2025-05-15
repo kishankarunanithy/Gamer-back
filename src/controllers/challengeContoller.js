@@ -5,20 +5,33 @@ const challengeController = {
 
   // récupère tous les challenges + includes
   async showAllChallenges(req, res) {
-    const result = await Challenge.findAll({
+    try {
+      const result = await Challenge.findAll({
         include: [
-          { association: "users",
+          {
+            association: "user", 
             attributes: { exclude: ["password"] }
+          },
+          {
+            association: "users", 
+            attributes: { exclude: ["password"] },
+            through: { attributes: [] } 
           },
           { association: "category" },
           { association: "difficulty" }
         ],
-            order: [["created_at", "DESC"]],
-            limit: 10
-          
-          });
-    res.status(200).json(result);
+        order: [["createdAt", "DESC"]],
+        limit: 10
+      });
+  
+      res.status(200).json(result);
+    } catch (error) {
+      console.error("❌ Erreur showAllChallenges:", error);
+      res.status(500).json({ error: "Une erreur inattendue est survenue, merci de réessayer plus tard." });
+    }
   },
+  
+  
 
   // récupère un challenge avec son id
   async showOneChallenge(req, res, next) {
@@ -26,7 +39,7 @@ const challengeController = {
 		include: [
 			{ association: "users",
 				attributes: { exclude: ["password"] },
-				through: { attributes: ["created_at", "video_url"] }
+				through: { attributes: ["createdAt", "video_url"] }
 			},
 			{ association: "category" },
 			{ association: "difficulty" }
@@ -119,7 +132,7 @@ const challengeController = {
     const challenges = await Challenge.findAll({
       where: { user_id: userId },
       include: ["category", "difficulty", "users"],
-      order: [["created_at", "DESC"]],
+      order: [["createdAt", "DESC"]],
     });
   
     res.status(200).json(challenges);
