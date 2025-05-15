@@ -11,8 +11,14 @@ app.set("trust proxy", 1);
 app.use(express.json());
 
 app.use(cors({
-    origin: ["https://gamer-front.vercel.app/"]
+  origin: [
+    'http://localhost:5173',
+    'https://gamer-front.vercel.app',
+    'https://gamer-front-jzd46r5or-kishankarunanithys-projects.vercel.app'
+  ],
+  credentials: true,
 }));
+
 
 app.get("/", (req, res) => {
     res.send("✅ API GamerChallenges est bien en ligne !");
