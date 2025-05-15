@@ -10,13 +10,25 @@ app.set("trust proxy", 1);
 
 app.use(express.json());
 
+
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://gamer-front.vercel.app',
+  'https://gamer-front-jzd46r5or-kishankarunanithys-projects.vercel.app'
+];
+
 app.use(cors({
-  origin: 'https://gamer-front-jzd46r5or-kishankarunanithys-projects.vercel.app/',
-  // Si vous prévoyez d'avoir plusieurs domaines ou des environnements de développement:
-  // origin: ['https://votre-domaine-vercel.vercel.app/', 'http://localhost:3000/'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  credentials: true
 }));
+
 
 
 app.get("/", (req, res) => {
