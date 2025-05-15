@@ -9,14 +9,18 @@ const challengeController = {
       const result = await Challenge.findAll({
         include: [
           {
-            association: "user", 
+            association: "user", // Créateur du challenge
             attributes: { exclude: ["password"] }
+          },
+          {
+            association: "users", // Participants
+            attributes: { exclude: ["password"] },
+            through: { attributes: [] } // ou ["video_url", "createdAt"] si tu veux les infos de participation
           },
           { association: "category" },
           { association: "difficulty" }
         ],
         order: [["createdAt", "DESC"]],
-
         limit: 10
       });
   
@@ -26,6 +30,7 @@ const challengeController = {
       res.status(500).json({ error: "Une erreur inattendue est survenue, merci de réessayer plus tard." });
     }
   },
+  
   
 
   // récupère un challenge avec son id
