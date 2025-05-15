@@ -1,5 +1,6 @@
 import { User } from "../models/association.js"
 import { notFound } from '../utils/error.js';
+import argon2 from "argon2";
 
 const userController = {
     async showAllUsers(req, res) {
@@ -127,19 +128,39 @@ const userController = {
 
     async updateUser(req, res) {
         const userId = parseInt(req.params.id);
-        const user = await User.findByPk(userId, {
-            attributes: { exclude: ["password"] }
-        });
+        const user = await User.findByPk(userId);
 
         if (!user) {
             notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
         }
 
+
         // Récupérer les données modifiées.
-        const { pseudo, email, password, avatar_url } = req.body;
+        const { pseudo, email, password, newPassword, confirmNewPassword, avatar_url } = req.body;
+
+        console.log(password, newPassword, confirmNewPassword);
+
         if (pseudo) { user.pseudo = pseudo };
         if (email) { user.email = email };
-        if (password) { user.password = password }; // * Le mot de passe est hashé dans le modèle User avant enregistrement en BDD
+        if (password) {
+    
+            // Récupérer le mot de passe hashé en BDD.
+            const hashedPassword = user.password;
+            
+            // Le comparer avec le mot de passe saisie par l'utilisateur.
+            const isMatching = await argon2.verify(hashedPassword, password);
+            
+            if (!isMatching) {
+                return res.status(400).json({ message: "Identifiants incorrects." });
+            }
+            if (newPassword !== confirmNewPassword) {
+            
+                return res.status(400).json({ message: "Le mot de passe et sa confirmation doivent être identiques." });
+            }
+            user.password = newPassword
+            console.log(user.password);
+
+        }; // * Le mot de passe est hashé dans le modèle User avant enregistrement en BDD
         if (avatar_url) { user.avatar_url = avatar_url };
 
         await user.save();
