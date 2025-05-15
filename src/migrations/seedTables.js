@@ -9,18 +9,18 @@ const comboKing = await User.create({ pseudo: "ComboGod", email: "combo@fight.gg
 
 // DIFFICULTY
 console.log("🚧 Ajout de difficultés de test...");
-const beginner = await Difficulty.create({ name: "Débutant", color: "#80CBC4" });
-const intermediate = await Difficulty.create({ name: "Intermédiaire", color: "#FFB74D" });
-const expert = await Difficulty.create({ name: "Expert", color: "#E57373" });
-const legendary = await Difficulty.create({ name: "Légendaire", color: "#9575CD" });
+const beginner = await Difficulty.create({ name: "Débutant", color: "#4F7878" });
+const intermediate = await Difficulty.create({ name: "Intermédiaire", color: "#CC7000" });
+const expert = await Difficulty.create({ name: "Expert", color: "#C13030" });
+const legendary = await Difficulty.create({ name: "Légendaire", color: "#9C069C" });
 
 // CATEGORY
 console.log("🚧 Ajout de catégories de test...");
-const speedrun = await Category.create({ name: "Speedrun", color: "#F44336" });
-const puzzle = await Category.create({ name: "Puzzle", color: "#2196F3" });
-const fightingGame = await Category.create({ name: "Jeu de Combat", color: "#4CAF50" });
-const strategy = await Category.create({ name: "Stratégie", color: "#FF9800" });
-const platformer = await Category.create({ name: "Plateforme", color: "#673AB7" });
+const speedrun = await Category.create({ name: "Speedrun", color: "#AB0B00" });
+const puzzle = await Category.create({ name: "Puzzle", color: "#0276DB" });
+const fightingGame = await Category.create({ name: "Jeu de Combat", color: "#046915" });
+const strategy = await Category.create({ name: "Stratégie", color: "#002608" });
+const platformer = await Category.create({ name: "Plateforme", color: "#A15300" });
 
 // CHALLENGE (créés par les utilisateurs)
 console.log("🚧 Ajout de challenges de test créés par les utilisateurs...");
