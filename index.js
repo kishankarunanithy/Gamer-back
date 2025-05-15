@@ -5,6 +5,7 @@ import { router } from "./src/router.js"
 import { errorHandler, notFoundHandler } from "./src/middlewares/controllerWrapper.js";
 import { xss } from "express-xss-sanitizer";
 
+const app = express();
 app.use(cors({
   origin: function (origin, callback) {
     if (
