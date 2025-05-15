@@ -6,11 +6,11 @@ import { errorHandler, notFoundHandler } from "./src/middlewares/controllerWrapp
 import { xss } from "express-xss-sanitizer";
 
 const app = express();
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://gamer-front.vercel.app',
-  'https://gamer-front-jzd46r5or-kishankarunanithys-projects.vercel.app'
-];
+//const allowedOrigins = [
+  //'http://localhost:5173',
+  //'https://gamer-front.vercel.app',
+  //'https://gamer-front-jzd46r5or-kishankarunanithys-projects.vercel.app'
+//];
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -32,11 +32,10 @@ app.use(express.json());
 
 
 
-app.get("/", (req, res) => {
-    res.send("✅ API GamerChallenges est bien en ligne !");
-  });
-  
-  app.use(router);
+//app.get("/", (req, res) => {
+   // res.send("✅ API GamerChallenges est bien en ligne !");
+  //});
+
   
 app.use(xss());
 
