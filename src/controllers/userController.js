@@ -148,17 +148,23 @@ const userController = {
 
     async deleteUser(req, res) {
         const userId = parseInt(req.params.id);
-        const user = await User.findByPk(userId, {
-            attributes: { exclude: ["password"] }
-        });
-
-        if (!user) {
-            notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
+      
+        // Vérifie si l'utilisateur connecté est le bon
+        if (req.user?.id !== userId) {
+          return res.status(403).json({ message: "Non autorisé à supprimer ce compte." });
         }
-
+      
+        const user = await User.findByPk(userId);
+      
+        if (!user) {
+          return res.status(404).json({ message: "Utilisateur introuvable." });
+        }
+      
         await user.destroy();
-        res.sendStatus(204);
-    }
+      
+        res.status(200).json({ message: "Utilisateur supprimé avec succès." });
+      }
+      
 }
 
 export { userController }
