@@ -11,7 +11,7 @@ app.set("trust proxy", 1);
 app.use(express.json());
 
 app.use(cors({
-    origin: ["http://localhost:5173"]
+    origin: ["https://gamer-front.vercel.app/"]
 }));
 
 app.get("/", (req, res) => {
