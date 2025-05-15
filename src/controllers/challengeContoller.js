@@ -9,13 +9,13 @@ const challengeController = {
       const result = await Challenge.findAll({
         include: [
           {
-            association: "user", // Créateur du challenge
+            association: "user", 
             attributes: { exclude: ["password"] }
           },
           {
-            association: "users", // Participants
+            association: "users", 
             attributes: { exclude: ["password"] },
-            through: { attributes: [] } // ou ["video_url", "createdAt"] si tu veux les infos de participation
+            through: { attributes: [] } 
           },
           { association: "category" },
           { association: "difficulty" }

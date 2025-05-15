@@ -6,17 +6,22 @@ import { errorHandler, notFoundHandler } from "./src/middlewares/controllerWrapp
 import { xss } from "express-xss-sanitizer";
 
 const app = express();
-//const allowedOrigins = [
-  //'http://localhost:5173',
-  //'https://gamer-front.vercel.app',
-  //'https://gamer-front-jzd46r5or-kishankarunanithys-projects.vercel.app'
-//];
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://gamer-front.vercel.app'
+];
 
 app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  credentials: true,
 }));
+
 app.set("trust proxy", 1); 
 
 app.use(express.json());
