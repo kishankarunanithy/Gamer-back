@@ -21,7 +21,6 @@ const challengeController = {
           { association: "difficulty" }
         ],
         order: [["createdAt", "DESC"]],
-        limit: 10
       });
   
       res.status(200).json(result);
