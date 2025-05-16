@@ -26,18 +26,7 @@ app.use(cors({
 app.set("trust proxy", 1); 
 
 app.use(express.json());
-
-
-
-
-
-
-
-//app.get("/", (req, res) => {
-   // res.send("✅ API GamerChallenges est bien en ligne !");
-  //});
-
-  
+ 
 app.use(xss());
 
 app.use("/uploads", express.static("public/uploads"));
