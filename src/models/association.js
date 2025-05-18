@@ -4,6 +4,7 @@ import { Challenge } from './Challenge.js';
 import { Category } from './Category.js';
 import { Difficulty } from './Difficulty.js';
 import { Submission } from './Submission.js';
+import { PasswordReset } from './PasswordReset.js';
 
 Category.hasMany(Challenge, {
   as: 'challenges_has_category',
@@ -73,7 +74,3 @@ PasswordReset.belongsTo(User, {
 });
 
 export { User, Challenge, Category, Difficulty, Submission, PasswordReset, sequelize }
-
-
-
-

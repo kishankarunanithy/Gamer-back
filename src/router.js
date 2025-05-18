@@ -12,11 +12,17 @@ import { createChallengeSchema, updateChallengeSchema } from './schemas/challeng
 import { createUserSchema, updateUserSchema } from './schemas/userSchemas.js';
 import { isAuthed } from './middlewares/isAuthed.js';
 import { handleFileUpload, handleMulterErrors, upload } from './middlewares/handleUploads.js';
+import { requestPasswordResetSchema, resetPasswordSchema } from './schemas/passwordResetSchemas.js';
+import { passwordResetController } from './controllers/passwordResetController.js';
 
 
 const router = Router();
 
 router.post("/login", cw(authController.loginUser));
+
+router.post("/forgot-password", validate(requestPasswordResetSchema), cw(passwordResetController.requestPasswordReset));
+router.post("/reset-password", validate(resetPasswordSchema), cw(passwordResetController.resetPassword));
+
 
 router.get("/users", cw(userController.showAllUsers));
 router.get("/users/:id", cw(userController.showOneUser));

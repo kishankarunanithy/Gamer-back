@@ -22,7 +22,7 @@ PasswordReset.init(
     },
     used: {
       type: DataTypes.BOOLEAN,
-      defaultValue: flase
+      defaultValue: false
     }
   },
   {
