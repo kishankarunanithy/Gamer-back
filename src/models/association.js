@@ -64,7 +64,15 @@ Submission.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-export { User, Challenge, Category, Difficulty, Submission, sequelize }
+User.hasMany(PasswordReset, { 
+  foreignKey: 'user_id' 
+});
+
+PasswordReset.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+export { User, Challenge, Category, Difficulty, Submission, PasswordReset, sequelize }
 
 
 
