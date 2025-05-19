@@ -45,7 +45,7 @@ const passwordResetController = {
     });
 
     //* Ici on créer le lien de réinitialisation
-    const resetLink = `${process.env.VITE_API_URL}/reset-password?token=${token}&email=${email}`;
+    const resetLink = `${process.env.FRONTEND_URL}/reset-password?token=${token}&email=${email}`;
 
     //* On envoi l'email à l'utilisateur
     await sendEmail({
