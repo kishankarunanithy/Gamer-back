@@ -45,7 +45,7 @@ router.delete("/challenges/:id", isAuthed, cw(challengeController.deleteChalleng
 router.post("/challenges/:id/submissions", isAuthed, cw(challengeController.addSubmission));
 
 router.get("/categories", cw(categoryController.findAllCategories));
-router.get("/categories/:id", cw(categoryController.showOneCategory));
+router.get("/categories/:id", cw(categoryController.findOneCategory));
 router.post("/categories/", isAuthed, validate(createCategorySchema), cw(categoryController.createCategory));
 router.patch("/categories/:id", isAuthed, validate(updateCategorySchema), cw(categoryController.updateCategory));
 router.delete("/categories/:id", isAuthed, cw(categoryController.deleteCategory));
