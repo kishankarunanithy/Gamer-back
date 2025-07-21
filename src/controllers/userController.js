@@ -132,14 +132,12 @@ const userController = {
         const user = await User.findByPk(userId);
 
         if (!user) {
-            notFound(`Catégorie avec l'ID ${req.params.id} non trouvée`);
+            notFound("Utilisateur non trouvé");
         }
 
 
         // Récupérer les données modifiées.
         const { pseudo, email, password, newPassword, confirmNewPassword, avatar_url } = req.body;
-
-        console.log(password, newPassword, confirmNewPassword);
 
         if (pseudo) { user.pseudo = pseudo };
         if (email) { user.email = email };
@@ -159,13 +157,13 @@ const userController = {
                 return res.status(400).json({ message: "Le mot de passe et sa confirmation doivent être identiques." });
             }
             user.password = newPassword
-            console.log(user.password);
 
         }; // * Le mot de passe est hashé dans le modèle User avant enregistrement en BDD
         if (avatar_url) { user.avatar_url = avatar_url };
 
         await user.save();
-        res.status(200).json(user);
+        const userWithoutPassword = { pseudo, email, avatar_url };
+        res.status(200).json(userWithoutPassword);
     },
 
     async deleteUser(req, res) {

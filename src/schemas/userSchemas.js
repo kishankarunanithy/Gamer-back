@@ -16,7 +16,7 @@ const createUserSchema = Joi.object({
   .pattern(/[a-z]/)
   .pattern(/[A-Z]/)
   .pattern(/[0-9]/)
-  .pattern(/[!@#$%^&*(),.?":{}|<>]/)
+  .pattern(/[!@#$%^&*(),.?":{}|<>+]/)
   .messages({
     'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
     'any.required': 'Le mot de passe est requis',
@@ -28,7 +28,7 @@ const createUserSchema = Joi.object({
   .pattern(/[a-z]/)
   .pattern(/[A-Z]/)
   .pattern(/[0-9]/)
-  .pattern(/[!@#$%^&*(),.?":{}|<>]/)
+  .pattern(/[!@#$%^&*(),.?":{}|<>+]/)
   .messages({
     'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
     'any.required': 'Le mot de passe est requis',
@@ -55,7 +55,7 @@ const updateUserSchema = Joi.object({
       .pattern(/[a-z]/)
       .pattern(/[A-Z]/)
       .pattern(/[0-9]/)
-      .pattern(/[!@#$%^&*(),.?":{}|<>]/)
+      .pattern(/[!@#$%^&*(),.?":{}|<>+]/)
       .messages({
         'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
         'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
@@ -65,7 +65,7 @@ const updateUserSchema = Joi.object({
       .pattern(/[a-z]/)
       .pattern(/[A-Z]/)
       .pattern(/[0-9]/)
-      .pattern(/[!@#$%^&*(),.?":{}|<>]/)
+      .pattern(/[!@#$%^&*(),.?":{}|<>+]/)
       .messages({
         'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
         'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
@@ -75,7 +75,7 @@ const updateUserSchema = Joi.object({
       .pattern(/[a-z]/)
       .pattern(/[A-Z]/)
       .pattern(/[0-9]/)
-      .pattern(/[!@#$%^&*(),.?":{}|<>]/)
+      .pattern(/[!@#$%^&*(),.?":{}|<>+]/)
       .messages({
         'string.min': 'Le mot de passe doit contenir au moins {#limit} caractères',
         'string.pattern.base': 'Le mot de passe doit contenir au moins une minuscule, une majuscule, un chiffre et un caractère spécial'
