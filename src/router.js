@@ -14,7 +14,11 @@ import { isAuthed } from './middlewares/isAuthed.js';
 import { handleFileUpload, handleMulterErrors, upload } from './middlewares/handleUploads.js';
 import { requestPasswordResetSchema, resetPasswordSchema } from './schemas/passwordResetSchemas.js';
 import { passwordResetController } from './controllers/passwordResetController.js';
-
+import swaggerUi from 'swagger-ui-express';
+import { readFileSync } from 'fs';
+const swaggerDocument = JSON.parse(
+  readFileSync(new URL('../docs/swagger.json', import.meta.url), 'utf-8')
+);
 
 const router = Router();
 
@@ -56,6 +60,7 @@ router.post("/difficulties", isAuthed, validate(createDifficultySchema), cw(diff
 router.patch("/difficulties/:id", isAuthed, validate(updateDifficultySchema), cw(difficultyController.updateDifficulty));
 router.delete("/difficulties/:id", isAuthed, cw(difficultyController.deleteDifficulty));
 
-
+// Route Swagger (JSON)
+router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 export { router }
